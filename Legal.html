@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal · Sacred Sound &amp; Spirit</title>
+<template id="__bundler_thumbnail" data-bg-color="#F5F2EC">
+  <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+    <rect width="120" height="80" fill="#F5F2EC"></rect>
+    <circle cx="60" cy="38" r="22" fill="none" stroke="#AFA98C" stroke-width="1.5"></circle>
+    <text x="60" y="70" font-family="serif" font-size="6" fill="#7A7560" text-anchor="middle">Legal</text>
+  </svg>
+</template>
+<style>
+@font-face { font-family:'Baskervville'; src:url('fonts/Baskervville-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; }
+@font-face { font-family:'Baskervville'; src:url('fonts/Baskervville-Italic.ttf') format('truetype'); font-weight:400; font-style:italic; }
+@font-face { font-family:'Baskervville'; src:url('fonts/Baskervville-SemiBold.ttf') format('truetype'); font-weight:600; font-style:normal; }
+@font-face { font-family:'Inter'; src:url('fonts/Inter-Light.ttf') format('truetype'); font-weight:300; font-style:normal; }
+@font-face { font-family:'Inter'; src:url('fonts/Inter-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; }
+@font-face { font-family:'Inter'; src:url('fonts/Inter-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; }
+@font-face { font-family:'Inter'; src:url('fonts/Inter-SemiBold.ttf') format('truetype'); font-weight:600; font-style:normal; }
+
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; font-size:16px; scroll-padding-top:96px; }
+body { font-family:'Inter', system-ui, sans-serif; background:#F5F2EC; color:#414543; -webkit-font-smoothing:antialiased; line-height:1.7; }
+a { color:inherit; text-decoration:none; }
+:root {
+  --cream:#F5F2EC; --charcoal:#414543; --sage:#AFA98C; --parchment:#EAE5D8;
+  --sage-light:#D4CEBC; --sage-deep:#7A7560; --charcoal-light:#6B6F6D; --white:#FFFFFF;
+  --font-display:'Baskervville', Georgia, serif;
+  --font-body:'Inter', system-ui, sans-serif;
+  --ease:cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Top bar */
+.legal-nav {
+  position:sticky; top:0; z-index:50;
+  background:rgba(245,242,236,0.93); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--sage-light);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 32px;
+}
+.legal-back {
+  display:inline-flex; align-items:center; gap:9px;
+  font-family:var(--font-body); font-size:12px; font-weight:500;
+  letter-spacing:0.1em; text-transform:uppercase; color:var(--charcoal);
+  transition:color 200ms var(--ease);
+}
+.legal-back:hover { color:var(--sage-deep); }
+.legal-back .arr { font-family:var(--font-display); font-size:16px; transition:transform 200ms var(--ease); }
+.legal-back:hover .arr { transform:translateX(-3px); }
+.legal-brand { font-family:var(--font-display); font-size:17px; color:var(--charcoal); letter-spacing:0.01em; }
+
+/* Header */
+.legal-head { max-width:760px; margin:0 auto; padding:72px 32px 40px; text-align:center; }
+.legal-kicker { font-family:var(--font-body); font-size:11px; font-weight:500; letter-spacing:0.24em; text-transform:uppercase; color:var(--sage); }
+.legal-head h1 { font-family:var(--font-display); font-size:clamp(34px,6vw,52px); font-weight:400; color:var(--charcoal); line-height:1.12; margin:16px 0 14px; }
+.legal-head p { font-family:var(--font-body); font-size:15px; font-weight:300; color:var(--charcoal-light); max-width:520px; margin:0 auto; }
+
+/* TOC */
+.legal-toc {
+  max-width:760px; margin:0 auto 8px; padding:0 32px;
+  display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
+}
+.legal-toc a {
+  font-family:var(--font-body); font-size:12px; font-weight:500;
+  letter-spacing:0.06em; color:var(--charcoal);
+  padding:9px 18px; border:1px solid var(--sage-light); border-radius:9999px;
+  background:var(--white);
+  transition:border-color 200ms var(--ease), color 200ms var(--ease), background 200ms var(--ease);
+}
+.legal-toc a:hover { border-color:var(--charcoal); color:var(--charcoal); background:var(--parchment); }
+
+/* Document body */
+.legal-wrap { max-width:760px; margin:0 auto; padding:40px 32px 24px; }
+.legal-doc { padding:44px 0; border-top:1px solid var(--sage-light); }
+.legal-doc:first-child { border-top:none; }
+.legal-doc-num { font-family:var(--font-body); font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--sage); }
+.legal-doc h2 { font-family:var(--font-display); font-size:clamp(26px,4.4vw,36px); font-weight:400; color:var(--charcoal); line-height:1.18; margin:10px 0 6px; }
+.legal-dates { font-family:var(--font-body); font-size:12px; font-weight:400; letter-spacing:0.04em; color:var(--charcoal-light); margin-bottom:22px; }
+.legal-doc h3 { font-family:var(--font-display); font-size:21px; font-weight:400; color:var(--charcoal); margin:30px 0 8px; }
+.legal-doc h4 { font-family:var(--font-body); font-size:13px; font-weight:600; letter-spacing:0.04em; color:var(--charcoal); margin:18px 0 6px; }
+.legal-doc p { font-family:var(--font-body); font-size:15px; font-weight:300; color:var(--charcoal); margin:0 0 14px; text-wrap:pretty; }
+.legal-doc strong { font-weight:500; color:var(--charcoal); }
+.legal-doc ul { list-style:none; margin:0 0 16px; padding:0; }
+.legal-doc li {
+  font-family:var(--font-body); font-size:15px; font-weight:300; color:var(--charcoal);
+  position:relative; padding-left:22px; margin-bottom:7px;
+}
+.legal-doc li::before { content:'✦'; position:absolute; left:0; top:1px; font-size:9px; color:var(--sage); }
+.legal-doc a.inline { color:var(--sage-deep); border-bottom:1px solid var(--sage-light); padding-bottom:1px; transition:border-color 200ms; }
+.legal-doc a.inline:hover { border-color:var(--charcoal); }
+
+.legal-callout {
+  background:var(--white); border:1px solid var(--sage-light); border-left:2px solid var(--sage);
+  border-radius:12px; padding:20px 22px; margin:18px 0;
+}
+.legal-callout p:last-child { margin-bottom:0; }
+
+.legal-contact-card {
+  background:var(--parchment); border-radius:12px; padding:22px 24px; margin-top:8px;
+}
+.legal-contact-card p { margin-bottom:4px; }
+.legal-contact-card .name { font-family:var(--font-display); font-size:18px; color:var(--charcoal); margin-bottom:6px; }
+
+.back-to-top { display:inline-block; margin-top:18px; font-family:var(--font-body); font-size:11px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--sage-deep); border-bottom:1px solid var(--sage-light); padding-bottom:2px; transition:color 200ms, border-color 200ms; }
+.back-to-top:hover { color:var(--charcoal); border-color:var(--charcoal); }
+
+/* Footer */
+.legal-footer { border-top:1px solid var(--sage-light); margin-top:24px; padding:32px; text-align:center; }
+.legal-footer p { font-family:var(--font-body); font-size:12px; font-weight:300; color:var(--charcoal-light); letter-spacing:0.04em; }
+.legal-footer a { color:var(--sage-deep); }
+.legal-footer a:hover { color:var(--charcoal); }
+
+@media (max-width:560px) {
+  .legal-nav { padding:14px 18px; }
+  .legal-brand { display:none; }
+  .legal-wrap, .legal-head, .legal-toc { padding-left:20px; padding-right:20px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="legal-nav">
+  <a class="legal-back" href="/"><span class="arr" aria-hidden="true">←</span> Back to site</a>
+  <span class="legal-brand">Sacred Sound &amp; Spirit</span>
+</nav>
+
+<header class="legal-head" id="top">
+  <span class="legal-kicker">Documents &amp; Legal</span>
+  <h1>Our Policies</h1>
+  <p>Please review the documents below. By submitting a form or using our services, you agree to these terms.</p>
+</header>
+
+<nav class="legal-toc" aria-label="Document navigation">
+  <a href="#privacy">Privacy Policy</a>
+  <a href="#terms">Terms &amp; Conditions</a>
+  <a href="#consent">Consent to Collect</a>
+  <a href="#confidentiality">Confidentiality Notice</a>
+</nav>
+
+<main class="legal-wrap">
+
+  <!-- ══ PRIVACY POLICY ══ -->
+  <section class="legal-doc" id="privacy">
+    <div class="legal-doc-num">Document 01</div>
+    <h2>Privacy Policy</h2>
+    <p class="legal-dates">Effective Date: 05/20/26 · Last Updated: 05/20/26</p>
+
+    <p>Welcome to Sacred Sound &amp; Spirit, LLC. (“Company,” “we,” “our,” or “us”). Your privacy is important to us. This Privacy Policy explains how we collect, use, store, and protect your information when you visit our website, use our services, or communicate with us.</p>
+    <p>By using this website, you agree to the practices described in this Privacy Policy.</p>
+
+    <h3>1. Information We Collect</h3>
+    <p>We may collect the following types of personal information:</p>
+    <h4>Information You Voluntarily Provide</h4>
+    <p>When you fill out forms on our website, sign up for emails, book services, purchase products, or contact us, we may collect:</p>
+    <ul>
+      <li>Name</li>
+      <li>Email address</li>
+      <li>Phone number</li>
+      <li>Billing information</li>
+      <li>Mailing address</li>
+      <li>Information you provide in messages, forms, or applications</li>
+    </ul>
+    <h4>Automatically Collected Information</h4>
+    <p>When you visit our website, we may automatically collect:</p>
+    <ul>
+      <li>IP address</li>
+      <li>Browser type</li>
+      <li>Device information</li>
+      <li>Pages viewed</li>
+      <li>Time spent on pages</li>
+      <li>Website usage data through cookies and analytics tools</li>
+    </ul>
+
+    <h3>2. How We Use Your Information</h3>
+    <p>We may use your information to:</p>
+    <ul>
+      <li>Provide services and customer support</li>
+      <li>Process purchases and payments</li>
+      <li>Send newsletters, promotions, updates, and special offers</li>
+      <li>Respond to inquiries</li>
+      <li>Improve website functionality and user experience</li>
+      <li>Analyze website traffic and marketing performance</li>
+      <li>Maintain business records and legal compliance</li>
+    </ul>
+
+    <h3>3. Marketing Communications</h3>
+    <p>By providing your contact information, you consent to receive promotional communications from us, including emails, text messages, and updates regarding offers, events, services, or products.</p>
+    <p>You may unsubscribe or opt out at any time by:</p>
+    <ul>
+      <li>Clicking the “unsubscribe” link in emails</li>
+      <li>Replying STOP to text messages</li>
+      <li>Contacting us directly at <a class="inline" href="mailto:SoundNSpirit888@gmail.com">SoundNSpirit888@gmail.com</a></li>
+    </ul>
+
+    <h3>4. Cookies &amp; Tracking Technologies</h3>
+    <p>Our website may use cookies, pixels, and similar tracking technologies to:</p>
+    <ul>
+      <li>Improve website performance</li>
+      <li>Understand visitor behavior</li>
+      <li>Personalize user experience</li>
+      <li>Deliver marketing and advertising</li>
+    </ul>
+    <p>You can modify your browser settings to decline cookies, though some website features may not function properly.</p>
+
+    <h3>5. Sharing Your Information</h3>
+    <p><strong>We do not sell your personal information.</strong></p>
+    <p>We may share information with trusted third-party service providers that help us operate our business, including:</p>
+    <ul>
+      <li>Email marketing platforms</li>
+      <li>Payment processors</li>
+      <li>Website hosting providers</li>
+      <li>Analytics services</li>
+      <li>Scheduling or customer management software</li>
+    </ul>
+    <p>These providers are only given access to information necessary to perform their services.</p>
+    <p>We may also disclose information if required by law or to protect our legal rights.</p>
+
+    <h3>6. Data Security</h3>
+    <p>We take reasonable measures to protect your personal information from unauthorized access, misuse, loss, or disclosure. However, no online transmission or electronic storage system can be guaranteed to be 100% secure.</p>
+    <p>By using this website, you acknowledge this risk.</p>
+
+    <h3>7. Your Privacy Rights</h3>
+    <p>Depending on your location, you may have rights regarding your personal information, including the right to:</p>
+    <ul>
+      <li>Access your data</li>
+      <li>Correct inaccurate information</li>
+      <li>Request deletion of your information</li>
+      <li>Opt out of marketing communications</li>
+      <li>Request information about how your data is used</li>
+    </ul>
+    <p>To exercise these rights, contact us at <a class="inline" href="mailto:SoundNSpirit888@gmail.com">SoundNSpirit888@gmail.com</a>.</p>
+
+    <h3>8. California Privacy Rights (CCPA/CPRA)</h3>
+    <p>If you are a California resident, you may have additional rights under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA), including:</p>
+    <ul>
+      <li>The right to know what personal information is collected</li>
+      <li>The right to request deletion of personal information</li>
+      <li>The right to correct inaccurate information</li>
+      <li>The right to opt out of the sale or sharing of personal information</li>
+      <li>The right to limit the use of sensitive personal information</li>
+    </ul>
+    <p>We do not sell personal information. California residents may contact us at <a class="inline" href="mailto:SoundNSpirit888@gmail.com">SoundNSpirit888@gmail.com</a> to exercise these rights.</p>
+
+    <h3>9. Children’s Privacy</h3>
+    <p>This website is not intended for children under the age of 13. We do not knowingly collect personal information from children.</p>
+    <p>If we become aware that personal information from a child has been collected, we will take steps to delete it promptly.</p>
+
+    <h3>10. Third-Party Links</h3>
+    <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices, content, or security of those websites.</p>
+    <p>We encourage users to review the privacy policies of any third-party sites they visit.</p>
+
+    <h3>11. Retention of Information</h3>
+    <p>We retain personal information only as long as necessary to fulfill business, legal, or operational purposes.</p>
+
+    <h3>12. Changes to This Privacy Policy</h3>
+    <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date.</p>
+    <p>Your continued use of the website after changes are posted constitutes acceptance of the revised policy.</p>
+
+    <h3>13. Contact Information</h3>
+    <p>If you have any questions regarding this Privacy Policy or how your information is handled, please contact:</p>
+    <div class="legal-contact-card">
+      <p class="name">Sacred Sound &amp; Spirit, LLC.</p>
+      <p>Kristine Rosales</p>
+      <p>31562 Railroad Canyon Rd. #42, Canyon Lake, CA 92587</p>
+      <p><a class="inline" href="mailto:SoundNSpirit888@gmail.com">SoundNSpirit888@gmail.com</a> · (562) 818-4142</p>
+    </div>
+    <a class="back-to-top" href="#top">↑ Back to top</a>
+  </section>
+
+  <!-- ══ TERMS & CONDITIONS ══ -->
+  <section class="legal-doc" id="terms">
+    <div class="legal-doc-num">Document 02</div>
+    <h2>Terms &amp; Conditions</h2>
+    <p class="legal-dates">Effective Date: 05/20/26 · Last Updated: 05/20/26</p>
+
+    <p>Welcome to Sacred Sound &amp; Spirit, LLC. (“Company,” “we,” “our,” or “us”). By accessing or using this website, purchasing services, booking appointments, or engaging with our content, you agree to these Terms &amp; Conditions. If you do not agree to these Terms, please do not use this website or our services.</p>
+
+    <h3>1. Use of Website</h3>
+    <p>By using this website, you agree to:</p>
+    <ul>
+      <li>Use the website lawfully and respectfully</li>
+      <li>Provide accurate information when submitting forms or purchasing services</li>
+      <li>Not misuse, disrupt, or attempt to gain unauthorized access to the website or its systems</li>
+      <li>Not copy, reproduce, or distribute website content without written permission</li>
+    </ul>
+    <p>You must be at least 18 years old to use this website or purchase services unless supervised by a parent or legal guardian.</p>
+
+    <h3>2. Services &amp; Educational Disclaimer</h3>
+    <p>Sacred Sound &amp; Spirit, LLC. provides educational, coaching, wellness, personal development, spiritual, and/or informational services. Our services are intended for informational and educational purposes only and are not a substitute for:</p>
+    <ul>
+      <li>Medical advice</li>
+      <li>Mental health treatment</li>
+      <li>Psychological counseling</li>
+      <li>Legal advice</li>
+      <li>Financial advice</li>
+    </ul>
+    <p>You acknowledge that you are responsible for your own decisions, actions, and results.</p>
+    <div class="legal-callout">
+      <p>If you are experiencing a medical or mental health emergency, please contact a licensed healthcare provider or emergency services immediately.</p>
+    </div>
+
+    <h3>3. No Guarantees</h3>
+    <p>We make no guarantees regarding specific outcomes, results, healing experiences, business success, emotional transformation, or personal growth.</p>
+    <p>Individual experiences vary based on many factors outside of our control.</p>
+
+    <h3>4. Payments &amp; Refunds</h3>
+    <h4>Payments</h4>
+    <p>All payments are due at the time of purchase unless otherwise agreed upon in writing. Prices are subject to change at any time.</p>
+    <h4>Refund Policy — All Sales Final</h4>
+    <p>All sales are final. No refunds will be issued for services, digital products, workshops, or coaching programs.</p>
+
+    <h3>5. Scheduling &amp; Cancellations</h3>
+    <p>Clients are responsible for attending scheduled appointments on time.</p>
+    <p>Missed appointments or cancellations made within <strong>24 hours</strong> of the appointment may be charged in full.</p>
+    <p>We reserve the right to reschedule appointments due to emergencies, illness, or unforeseen circumstances.</p>
+
+    <h3>6. Intellectual Property</h3>
+    <p>All website content, including but not limited to text, graphics, logos, videos, downloads, meditations, course materials, workbooks, and branding is the property of Sacred Sound &amp; Spirit, LLC. and is protected by copyright and intellectual property laws.</p>
+    <p>You may not reproduce, distribute, modify, or commercially use our content without written permission.</p>
+
+    <h3>7. User Conduct</h3>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Harass, threaten, or abuse others</li>
+      <li>Post unlawful or harmful material</li>
+      <li>Attempt to hack or interfere with website operations</li>
+      <li>Use our services for illegal purposes</li>
+    </ul>
+    <p>We reserve the right to terminate access to our services or website if these Terms are violated.</p>
+
+    <h3>8. Testimonials &amp; User Content</h3>
+    <p>If you voluntarily provide testimonials, reviews, comments, photos, or feedback, you grant us permission to use them for marketing or promotional purposes unless you request otherwise in writing.</p>
+    <p>We will never intentionally share private client information without consent.</p>
+
+    <h3>9. Privacy</h3>
+    <p>Your use of this website is also governed by our <a class="inline" href="#privacy">Privacy Policy</a>. Please review it for information about how we collect, use, and protect personal information.</p>
+
+    <h3>10. Third-Party Services &amp; Links</h3>
+    <p>This website may contain links to third-party websites, products, or services. We are not responsible for the content, privacy practices, or reliability of third-party services.</p>
+
+    <h3>11. Limitation of Liability</h3>
+    <p>To the fullest extent permitted by law, Sacred Sound &amp; Spirit, LLC. shall not be liable for any direct, indirect, incidental, consequential, or special damages arising from:</p>
+    <ul>
+      <li>Use of this website</li>
+      <li>Participation in services</li>
+      <li>Reliance on information provided</li>
+      <li>Technical interruptions or website errors</li>
+    </ul>
+    <p>Your use of the website and services is at your own risk.</p>
+
+    <h3>12. Indemnification</h3>
+    <p>You agree to indemnify and hold harmless Sacred Sound &amp; Spirit, LLC. from any claims, damages, liabilities, costs, or expenses arising from your use of the website or violation of these Terms.</p>
+
+    <h3>13. Governing Law</h3>
+    <p>These Terms &amp; Conditions shall be governed by and interpreted in accordance with the laws of the State of California, without regard to conflict of law principles. Any disputes arising under these Terms shall be resolved in the appropriate courts located in California.</p>
+
+    <h3>14. Changes to Terms</h3>
+    <p>We reserve the right to modify these Terms &amp; Conditions at any time. Updated versions will be posted on this page with a revised effective date. Continued use of the website after changes are posted constitutes acceptance of the updated Terms.</p>
+
+    <h3>15. Contact Information</h3>
+    <p>If you have questions about these Terms &amp; Conditions, please contact:</p>
+    <div class="legal-contact-card">
+      <p class="name">Sacred Sound &amp; Spirit, LLC.</p>
+      <p>Kristine Rosales</p>
+      <p>31562 Railroad Canyon Rd. #42, Canyon Lake, CA 92587</p>
+      <p><a class="inline" href="mailto:SoundNSpirit888@gmail.com">SoundNSpirit888@gmail.com</a> · (562) 818-4142</p>
+    </div>
+    <a class="back-to-top" href="#top">↑ Back to top</a>
+  </section>
+
+  <!-- ══ CONSENT TO COLLECT ══ -->
+  <section class="legal-doc" id="consent">
+    <div class="legal-doc-num">Document 03</div>
+    <h2>Consent to Collect Personal Information</h2>
+
+    <p>By submitting your information through this website, you consent to the collection and use of your personal information by Sacred Sound &amp; Spirit, LLC.</p>
+    <p>The information collected may include your name, email address, phone number, and any other information you voluntarily provide.</p>
+    <p>Your information may be used to:</p>
+    <ul>
+      <li>Send promotional emails, newsletters, and special offers</li>
+      <li>Provide updates about services, events, or programs</li>
+      <li>Respond to inquiries or customer support requests</li>
+      <li>Improve our website, services, and customer experience</li>
+    </ul>
+    <p>We respect your privacy and will not sell your personal information to third parties.</p>
+    <p>You may unsubscribe from promotional communications at any time by clicking the “unsubscribe” link in emails or by contacting us directly at <a class="inline" href="mailto:SoundNSpirit888@gmail.com">SoundNSpirit888@gmail.com</a>.</p>
+    <p>By checking the consent box and submitting your information, you acknowledge that:</p>
+    <ul>
+      <li>You are voluntarily providing your information</li>
+      <li>You consent to receive marketing and promotional communications</li>
+      <li>You understand you may opt out at any time</li>
+    </ul>
+    <p>For more information about how your data is handled, please review our <a class="inline" href="#privacy">Privacy Policy</a>.</p>
+    <a class="back-to-top" href="#top">↑ Back to top</a>
+  </section>
+
+  <!-- ══ CONFIDENTIALITY NOTICE ══ -->
+  <section class="legal-doc" id="confidentiality">
+    <div class="legal-doc-num">Document 04</div>
+    <h2>Confidentiality &amp; Sensitive Information Notice</h2>
+
+    <p>At Sacred Sound &amp; Spirit, LLC, we deeply respect your privacy and the sensitive nature of the personal experiences you may choose to share during coaching, wellness, trauma-informed support, Reiki sessions, mentorship, or personal development services.</p>
+    <p>While we take reasonable steps to protect your personal information and maintain confidentiality, it is important to understand that our services are not medical treatment, psychotherapy, or healthcare services and are therefore not covered under the Health Insurance Portability and Accountability Act (HIPAA) unless otherwise stated in writing.</p>
+
+    <h3>Important Disclosure</h3>
+    <p>Our services may involve conversations related to:</p>
+    <ul>
+      <li>Trauma</li>
+      <li>Emotional healing</li>
+      <li>Grief</li>
+      <li>Relationships</li>
+      <li>Personal growth</li>
+      <li>Spirituality</li>
+      <li>Stress</li>
+      <li>Life experiences</li>
+      <li>Emotional wellbeing</li>
+    </ul>
+    <p>However:</p>
+    <ul>
+      <li>We are not acting as licensed medical providers, therapists, psychologists, psychiatrists, or healthcare professionals unless specifically disclosed.</li>
+      <li>Communications through this website, email, text messaging, social media, or online platforms may not be fully secure.</li>
+      <li>Information shared during sessions is treated with care, respect, and discretion, but should not be considered protected medical information under HIPAA laws.</li>
+    </ul>
+
+    <h3>Our Commitment to Privacy</h3>
+    <p>We are committed to:</p>
+    <ul>
+      <li>Treating personal information with sensitivity and respect</li>
+      <li>Maintaining appropriate professional boundaries</li>
+      <li>Limiting access to client information whenever possible</li>
+      <li>Using secure platforms and reasonable safeguards for scheduling, payments, and communication</li>
+      <li>Never intentionally sharing private client information without consent unless required by law</li>
+    </ul>
+
+    <h3>Limits of Confidentiality</h3>
+    <p>Confidentiality may be limited in certain circumstances, including if:</p>
+    <ul>
+      <li>There is concern of immediate harm to yourself or others</li>
+      <li>Abuse or neglect of a child, dependent adult, or vulnerable person is disclosed where reporting is legally required</li>
+      <li>Information is required by court order or applicable law</li>
+    </ul>
+
+    <h3>Client Responsibility</h3>
+    <p>By participating in services with Sacred Sound &amp; Spirit, LLC, you acknowledge and understand that:</p>
+    <ul>
+      <li>Coaching and wellness services are educational and supportive in nature</li>
+      <li>They are not a replacement for licensed therapy, medical care, or mental health treatment</li>
+      <li>You are responsible for your own emotional, mental, and physical wellbeing</li>
+      <li>You may choose what personal information you share during sessions</li>
+    </ul>
+    <div class="legal-callout">
+      <p>If you are experiencing a mental health crisis or medical emergency, please contact a licensed healthcare provider or 9-1-1 emergency services immediately.</p>
+    </div>
+    <a class="back-to-top" href="#top">↑ Back to top</a>
+  </section>
+
+</main>
+
+<footer class="legal-footer">
+  <p>© 2025 Sacred Sound &amp; Spirit, LLC. · All Rights Reserved · <a href="/">Return to site</a></p>
+</footer>
+
+</body>
+</html>

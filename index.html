@@ -1,0 +1,2791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sacred Sound & Spirit — Healing with Reiki and Sound</title>
+<template id="__bundler_thumbnail" data-bg-color="#F5F2EC">
+  <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+    <rect width="120" height="80" fill="#F5F2EC"/>
+    <circle cx="60" cy="38" r="22" fill="none" stroke="#AFA98C" stroke-width="1.5"/>
+    <circle cx="60" cy="38" r="14" fill="none" stroke="#AFA98C" stroke-width="1"/>
+    <circle cx="60" cy="38" r="5" fill="#AFA98C" opacity="0.6"/>
+    <text x="60" y="70" font-family="serif" font-size="6" fill="#7A7560" text-anchor="middle">Sacred Sound &amp; Spirit</text>
+  </svg>
+</template>
+<style>
+/* ── Fonts ─────────────────────────────────── */
+@font-face { font-family:'Baskervville'; src:url('fonts/Baskervville-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; }
+@font-face { font-family:'Baskervville'; src:url('fonts/Baskervville-Italic.ttf') format('truetype'); font-weight:400; font-style:italic; }
+@font-face { font-family:'Baskervville'; src:url('fonts/Baskervville-SemiBold.ttf') format('truetype'); font-weight:600; font-style:normal; }
+@font-face { font-family:'Inter'; src:url('fonts/Inter-Light.ttf') format('truetype'); font-weight:300; font-style:normal; }
+@font-face { font-family:'Inter'; src:url('fonts/Inter-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; }
+@font-face { font-family:'Inter'; src:url('fonts/Inter-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; }
+@font-face { font-family:'Inter'; src:url('fonts/Inter-SemiBold.ttf') format('truetype'); font-weight:600; font-style:normal; }
+
+/* ── Reset & Base ──────────────────────────── */
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; font-size:16px; overflow-x:hidden; }
+body { overflow-x:hidden; }
+body { font-family:'Inter', system-ui, sans-serif; background:#F5F2EC; color:#414543; -webkit-font-smoothing:antialiased; }
+img { display:block; max-width:100%; }
+a { text-decoration:none; color:inherit; }
+button { cursor:pointer; font-family:inherit; }
+
+/* ── Tokens ────────────────────────────────── */
+:root {
+  --cream:#F5F2EC; --charcoal:#414543; --sage:#AFA98C; --parchment:#EAE5D8;
+  --sage-light:#D4CEBC; --sage-deep:#7A7560; --charcoal-light:#6B6F6D;
+  --white:#FFFFFF;
+  --font-display:'Baskervville', Georgia, serif;
+  --font-body:'Inter', system-ui, sans-serif;
+  --ease:cubic-bezier(0.4,0,0.2,1);
+  --nav-h:68px;
+  --max-w:1100px; --reading-w:720px;
+}
+
+/* ── Utility ───────────────────────────────── */
+.label { font-family:var(--font-body); font-size:11px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--sage); }
+.container { max-width:var(--max-w); margin:0 auto; padding:0 40px; }
+.reading { max-width:var(--reading-w); margin:0 auto; }
+
+/* ── NAV ───────────────────────────────────── */
+#nav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  background:rgba(245,242,236,0.93); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--sage-light);
+  height:var(--nav-h);
+  transition:box-shadow 300ms var(--ease);
+}
+#nav.scrolled { box-shadow:0 4px 24px rgba(65,69,67,0.08); }
+.nav-inner {
+  max-width:var(--max-w); margin:0 auto; padding:0 40px;
+  height:100%; display:flex; align-items:center; justify-content:space-between;
+}
+.nav-logo { display:flex; align-items:center; gap:10px; flex-shrink:0; }
+.nav-logo img { height:44px; width:auto; display:block; }
+.nav-wordmark {
+  font-family:var(--font-display); font-size:18px; font-weight:400;
+  color:var(--charcoal); letter-spacing:0.01em; line-height:1;
+}
+.nav-wordmark em { font-style:italic; color:var(--sage-deep); }
+.nav-logo-icon {
+  width:58px; height:58px; overflow:hidden; flex-shrink:0;
+  position:relative;
+}
+.nav-logo-icon img {
+  position:absolute; top:30%; left:10%;
+  width:82%; height:auto;
+}
+.nav-links { display:flex; align-items:center; gap:4px; }
+.nav-link {
+  background:none; border:none;
+  font-family:var(--font-body); font-size:13px; font-weight:400;
+  letter-spacing:0.04em; color:var(--charcoal-light);
+  padding:8px 14px; border-radius:9999px;
+  transition:color 200ms var(--ease), background 200ms var(--ease);
+}
+.nav-link:hover { color:var(--charcoal); background:var(--parchment); }
+.nav-cta {
+  margin-left:12px;
+  background:var(--charcoal); color:var(--cream);
+  border:none;
+  font-family:var(--font-body); font-size:12px; font-weight:500;
+  letter-spacing:0.1em; text-transform:uppercase;
+  padding:10px 24px; border-radius:9999px;
+  transition:background 250ms var(--ease), transform 150ms var(--ease);
+}
+.nav-cta:hover { background:var(--sage-deep); }
+.nav-cta:active { transform:scale(0.97); }
+.hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:8px; }
+.hamburger span { display:block; width:22px; height:1.5px; background:var(--charcoal); border-radius:2px; transition:all 300ms var(--ease); }
+.mobile-menu {
+  display:none; position:fixed; top:var(--nav-h); left:0; right:0; z-index:190;
+  background:rgba(245,242,236,0.97); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--sage-light);
+  padding:24px 40px 32px; flex-direction:column; gap:4px;
+}
+.mobile-menu.open { display:flex; }
+.mobile-menu .nav-link { font-size:15px; padding:12px 0; border-radius:0; border-bottom:1px solid var(--parchment); }
+.mobile-menu .nav-cta { margin:16px 0 0; align-self:flex-start; }
+
+/* ── HERO ──────────────────────────────────── */
+#hero {
+  min-height:auto; padding-top:var(--nav-h);
+  background:#1a1510;
+  display:grid; grid-template-columns:1fr 1fr; align-items:center;
+  position:relative; overflow:hidden;
+}
+/* Full-bleed image */
+#hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:url('assets/hero-bg.png') center center / cover no-repeat;
+  z-index:0;
+}
+/* Gradient overlay: dark on left for text, lighter on right for circles */
+#hero::after {
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(
+    to right,
+    rgba(20,16,10,0.82) 0%,
+    rgba(20,16,10,0.72) 45%,
+    rgba(20,16,10,0.38) 70%,
+    rgba(20,16,10,0.18) 100%
+  );
+  z-index:1;
+}
+#hero > * { position:relative; z-index:2; }
+.hero-content { padding:48px 0 48px 40px; max-width:560px; margin-left:auto; padding-right:60px; }
+.hero-eyebrow { margin-bottom:24px; }
+.hero-h1 {
+  font-family:var(--font-display); font-size:clamp(44px,5vw,68px); font-weight:400;
+  line-height:1.08; letter-spacing:-0.02em; color:#F5F2EC;
+  margin-bottom:24px; text-shadow:0 2px 24px rgba(0,0,0,0.3);
+}
+.hero-h1 em { font-style:italic; }
+.hero-sub {
+  font-family:var(--font-body); font-size:17px; font-weight:300;
+  line-height:1.75; color:rgba(245,242,236,0.72); margin-bottom:40px;
+  text-shadow:0 1px 8px rgba(0,0,0,0.2);
+}
+.hero-actions { display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-bottom:28px; }
+.btn-primary {
+  background:rgba(245,242,236,0.95); color:var(--charcoal); border:none;
+  font-family:var(--font-body); font-size:12px; font-weight:600;
+  letter-spacing:0.1em; text-transform:uppercase;
+  padding:14px 36px; border-radius:9999px;
+  transition:background 250ms var(--ease), transform 150ms var(--ease);
+  display:inline-block; box-shadow:0 4px 20px rgba(0,0,0,0.25);
+}
+.btn-primary:hover { background:#fff; }
+.btn-primary:active { transform:scale(0.97); }
+.btn-ghost {
+  background:none; border:1px solid rgba(245,242,236,0.35); border-radius:9999px;
+  font-family:var(--font-body); font-size:13px; font-weight:400;
+  color:rgba(245,242,236,0.8); letter-spacing:0.04em;
+  padding:13px 28px;
+  transition:border-color 200ms var(--ease), color 200ms var(--ease), background 200ms var(--ease);
+}
+.btn-ghost:hover { border-color:rgba(245,242,236,0.7); color:#fff; background:rgba(255,255,255,0.06); }
+.hero-trust {
+  display:flex; flex-wrap:wrap; gap:16px; align-items:center;
+}
+.hero-trust-item {
+  font-family:var(--font-body); font-size:11.5px; font-weight:400;
+  color:rgba(245,242,236,0.55); letter-spacing:0.02em;
+  display:flex; align-items:center; gap:5px;
+}
+.hero-trust-item::before { content:'✦'; color:var(--sage); font-size:8px; }
+
+/* Hero visual */
+.hero-visual {
+  display:flex; align-items:center; justify-content:center;
+  height:100%; padding:48px 40px 48px 0; position:relative;
+}
+.circles-wrap { position:relative; width:380px; height:380px; flex-shrink:0; }
+.circles-wrap svg { width:100%; height:100%; filter:drop-shadow(0 0 24px rgba(175,169,140,0.18)); }
+
+@keyframes owlFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+/* ── TRUST BAR ─────────────────────────────── */
+#trust {
+  background:var(--charcoal); padding:16px 40px;
+}
+.trust-inner {
+  max-width:var(--max-w); margin:0 auto;
+  display:flex; gap:0; justify-content:space-between; align-items:center;
+  flex-wrap:nowrap; overflow:hidden;
+}
+.trust-item {
+  display:flex; align-items:center; gap:6px;
+  font-family:var(--font-body); font-size:10px; font-weight:400;
+  letter-spacing:0.1em; text-transform:uppercase; color:var(--sage-light);
+  white-space:nowrap;
+}
+.trust-item::before { content:'✦'; color:var(--sage); font-size:7px; flex-shrink:0; }
+
+/* ── SHARED SECTION ────────────────────────── */
+.section { padding:96px 40px; }
+.section-header { margin-bottom:48px; }
+.section-header .label { display:block; margin-bottom:14px; }
+.section-header h2 {
+  font-family:var(--font-display); font-size:clamp(32px,4vw,44px); font-weight:400;
+  line-height:1.15; letter-spacing:-0.01em; color:var(--charcoal);
+}
+.section-header p {
+  margin-top:16px; font-family:var(--font-body); font-size:16px;
+  font-weight:300; line-height:1.75; color:var(--charcoal-light);
+  max-width:520px;
+}
+
+/* ── ABOUT ─────────────────────────────────── */
+#about { background:var(--cream); }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; max-width:var(--max-w); margin:0 auto; }
+.about-text { font-family:var(--font-body); font-size:16px; font-weight:300; line-height:1.85; color:var(--charcoal-light); }
+.about-text p + p { margin-top:20px; }
+.about-link {
+  display:inline-block; margin-top:28px;
+  font-family:var(--font-body); font-size:13px; font-weight:500;
+  letter-spacing:0.06em; text-transform:uppercase; color:var(--sage-deep);
+  border-bottom:1px solid var(--sage-light); padding-bottom:2px;
+  transition:color 200ms var(--ease), border-color 200ms var(--ease);
+}
+.about-link:hover { color:var(--charcoal); border-color:var(--charcoal); }
+.about-quote {
+  border-left:2px solid var(--sage); padding-left:24px; margin-bottom:28px;
+}
+.about-quote blockquote {
+  font-family:var(--font-display); font-size:19px; font-weight:400;
+  font-style:italic; line-height:1.55; color:var(--charcoal);
+}
+.credential-cards { display:flex; flex-direction:column; gap:14px; }
+
+/* ── About video card ── */
+.about-video {
+  margin:0 0 28px;
+  display:flex; gap:20px; align-items:center;
+  background:var(--white); border:1px solid var(--sage-light);
+  border-radius:16px; padding:16px;
+  box-shadow:0 4px 16px rgba(65,69,67,0.07);
+}
+.about-video-frame {
+  position:relative; flex-shrink:0;
+  width:118px; aspect-ratio:9/16; border-radius:12px; overflow:hidden;
+  background:#1a1510; cursor:pointer;
+}
+.about-video-frame video {
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.about-video-overlay {
+  position:absolute; inset:0; z-index:2;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(to top, rgba(20,16,10,0.45), rgba(20,16,10,0.12));
+  transition:opacity 250ms var(--ease);
+}
+.about-video-frame.playing .about-video-overlay { opacity:0; pointer-events:none; }
+.about-video-play {
+  width:46px; height:46px; border-radius:50%;
+  background:rgba(245,242,236,0.95);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 16px rgba(0,0,0,0.3);
+  transition:transform 150ms var(--ease), background 200ms var(--ease);
+}
+.about-video-frame:hover .about-video-play { transform:scale(1.08); background:#fff; }
+.about-video-play svg { fill:var(--charcoal); margin-left:2px; }
+.about-video-info { min-width:0; }
+.about-video-info .label { display:block; margin-bottom:8px; }
+.about-video-info h3 {
+  font-family:var(--font-display); font-size:21px; font-weight:400;
+  color:var(--charcoal); line-height:1.2; margin-bottom:8px;
+}
+.about-video-info p {
+  font-family:var(--font-body); font-size:13.5px; font-weight:300;
+  line-height:1.6; color:var(--charcoal-light);
+}
+@media (max-width:480px) {
+  .about-video { flex-direction:column; text-align:center; align-items:center; }
+  .about-video-frame { width:160px; }
+}
+.credential-card {
+  background:var(--white); border:1px solid var(--sage-light);
+  border-radius:12px; padding:16px 20px;
+  display:flex; gap:16px; align-items:flex-start;
+  box-shadow:0 4px 16px rgba(65,69,67,0.07);
+  transition:box-shadow 250ms var(--ease), transform 250ms var(--ease);
+}
+.credential-card:hover { box-shadow:0 8px 28px rgba(65,69,67,0.11); transform:translateY(-2px); }
+.cred-icon {
+  width:36px; height:36px; border-radius:8px;
+  background:var(--parchment); display:flex; align-items:center; justify-content:center;
+  font-size:15px; flex-shrink:0; color:var(--sage-deep); font-family:var(--font-display);
+  font-weight:600; letter-spacing:-0.02em;
+}
+.cred-title {
+  font-family:var(--font-body); font-size:13px; font-weight:600;
+  color:var(--charcoal); margin-bottom:4px; letter-spacing:0.01em;
+}
+.cred-text {
+  font-family:var(--font-body); font-size:13px; font-weight:300;
+  line-height:1.6; color:var(--charcoal-light);
+}
+
+/* ── PHILOSOPHY ────────────────────────────── */
+#philosophy {
+  background:var(--charcoal); padding:96px 40px; text-align:center;
+  position:relative; overflow:hidden;
+}
+#philosophy::before {
+  content:'';
+  position:absolute; inset:0;
+  background:url('assets/philosophy-bg.png') 15% 30% / cover no-repeat;
+  z-index:0;
+}
+#philosophy::after {
+  content:'';
+  position:absolute; inset:0;
+  background:rgba(20,16,10,0.72);
+  z-index:1;
+}
+#philosophy > * { position:relative; z-index:2; }
+#philosophy .label { color:var(--sage); }
+#philosophy h2 {
+  font-family:var(--font-display); font-size:clamp(34px,4vw,50px); font-weight:400;
+  font-style:italic; line-height:1.15; letter-spacing:-0.01em;
+  color:var(--cream); margin:14px 0 28px;
+}
+#philosophy p {
+  font-family:var(--font-body); font-size:16px; font-weight:300;
+  line-height:1.85; color:rgba(245,242,236,0.7);
+  max-width:640px; margin:0 auto;
+}
+
+/* ── OFFERINGS ─────────────────────────────── */
+#offerings { background:var(--parchment); }
+.offerings-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:var(--max-w); margin:0 auto; }
+.offering-card {
+  background:var(--white); border-radius:16px;
+  box-shadow:0 4px 16px rgba(65,69,67,0.09);
+  padding:32px 28px; display:flex; flex-direction:column;
+  border:1.5px solid transparent; position:relative;
+  transition:box-shadow 300ms var(--ease), transform 250ms var(--ease);
+}
+.offering-card:hover { box-shadow:0 10px 36px rgba(65,69,67,0.13); transform:translateY(-3px); }
+.offering-card.featured { border-color:var(--charcoal); }
+.badge {
+  position:absolute; top:-1px; right:24px;
+  background:var(--charcoal); color:var(--cream);
+  font-family:var(--font-body); font-size:9px; font-weight:600;
+  letter-spacing:0.14em; text-transform:uppercase;
+  padding:5px 12px; border-radius:0 0 8px 8px;
+}
+.offering-icon {
+  font-family:var(--font-display); font-size:18px; color:var(--sage);
+  margin-bottom:20px; letter-spacing:0.05em;
+}
+.offering-title {
+  font-family:var(--font-display); font-size:26px; font-weight:400;
+  color:var(--charcoal); margin-bottom:6px; line-height:1.15;
+}
+.offering-duration {
+  font-family:var(--font-body); font-size:11px; font-weight:400;
+  letter-spacing:0.1em; text-transform:uppercase; color:var(--sage);
+  margin-bottom:20px;
+}
+.offering-services {
+  list-style:none; flex:1; margin-bottom:28px;
+  display:flex; flex-direction:column; gap:8px;
+}
+.offering-services li {
+  font-family:var(--font-body); font-size:13.5px; font-weight:300;
+  line-height:1.5; color:var(--charcoal-light);
+  padding-left:14px; position:relative;
+}
+.offering-services li::before {
+  content:'—'; position:absolute; left:0;
+  color:var(--sage-light); font-size:11px;
+}
+.offering-footer {
+  border-top:1px solid var(--sage-light); padding-top:20px;
+  display:flex; flex-direction:column; gap:14px;
+}
+.offering-price {
+  font-family:var(--font-display); font-size:32px; font-weight:400; color:var(--charcoal);
+  line-height:1;
+}
+.offering-fine {
+  font-family:var(--font-body); font-size:11px; font-weight:300;
+  color:var(--sage-deep); letter-spacing:0.04em;
+}
+.offering-fine::before { content:'✦  '; font-size:7px; }
+.btn-offering {
+  background:var(--charcoal); color:var(--cream); border:none;
+  font-family:var(--font-body); font-size:11px; font-weight:500;
+  letter-spacing:0.12em; text-transform:uppercase;
+  padding:12px 24px; border-radius:9999px; text-align:center;
+  display:block; transition:background 250ms var(--ease), transform 150ms var(--ease);
+}
+.btn-offering:hover { background:var(--sage-deep); }
+.btn-offering:active { transform:scale(0.97); }
+.btn-offering-outline {
+  background:none; color:var(--charcoal);
+  border:1px solid var(--sage-light); border-radius:9999px;
+  font-family:var(--font-body); font-size:11px; font-weight:500;
+  letter-spacing:0.12em; text-transform:uppercase;
+  padding:12px 24px; text-align:center;
+  display:block; transition:border-color 250ms var(--ease), color 250ms var(--ease);
+}
+.btn-offering-outline:hover { border-color:var(--charcoal); }
+
+/* ── OFFERINGS extras ─────────────────────── */
+.offering-services li { display:flex; justify-content:space-between; gap:12px; align-items:baseline; }
+.offering-services li .svc-name { flex:1; }
+.offering-services li .svc-price {
+  font-family:var(--font-display); font-size:14px; color:var(--charcoal);
+  font-weight:400; letter-spacing:-0.01em; flex-shrink:0;
+}
+.discount-note {
+  max-width:760px; margin:40px auto 0; padding:20px 28px;
+  background:var(--white); border:1px solid var(--sage-light);
+  border-radius:14px; display:flex; gap:16px; align-items:flex-start;
+}
+.discount-icon {
+  flex-shrink:0; width:36px; height:36px; border-radius:50%;
+  background:var(--parchment); display:flex; align-items:center; justify-content:center;
+  color:var(--sage-deep); font-size:14px;
+}
+.discount-note p {
+  font-family:var(--font-body); font-size:14px; font-weight:300;
+  line-height:1.65; color:var(--charcoal-light); margin:0;
+}
+.discount-note p strong { color:var(--charcoal); font-weight:500; }
+
+/* ── CEREMONIAL ADD-ONS ────────────────────── */
+#ceremonial { background:var(--cream); }
+.ceremonial-intro { text-align:center; max-width:600px; margin:0 auto; }
+.ceremonial-discount {
+  max-width:560px; margin:24px auto 0; padding:14px 24px;
+  background:var(--white); border:1px solid var(--sage-light);
+  border-radius:9999px; display:inline-flex; gap:10px; align-items:center;
+  font-family:var(--font-body); font-size:13.5px; font-weight:300;
+  color:var(--charcoal-light);
+}
+.ceremonial-discount strong { color:var(--charcoal); font-weight:500; }
+.ceremonial-discount::before { content:'✦'; color:var(--sage); font-size:9px; }
+.ceremonial-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  max-width:var(--max-w); margin:48px auto 0;
+}
+.ceremonial-card {
+  background:var(--white); border-radius:16px;
+  box-shadow:0 4px 16px rgba(65,69,67,0.08);
+  padding:32px 28px; display:flex; flex-direction:column;
+  border:1px solid var(--sage-light);
+  transition:box-shadow 300ms var(--ease), transform 250ms var(--ease);
+}
+.ceremonial-card:hover { box-shadow:0 10px 36px rgba(65,69,67,0.13); transform:translateY(-3px); }
+.ceremonial-icon {
+  font-family:var(--font-display); font-size:15px; color:var(--sage);
+  letter-spacing:0.18em; text-transform:uppercase; margin-bottom:18px;
+}
+.ceremonial-title {
+  font-family:var(--font-display); font-size:25px; font-weight:400;
+  color:var(--charcoal); line-height:1.15; margin-bottom:14px;
+}
+.ceremonial-prices {
+  display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+  padding-bottom:18px; margin-bottom:18px;
+  border-bottom:1px solid var(--sage-light);
+}
+.ceremonial-price {
+  font-family:var(--font-display); font-size:30px; font-weight:400;
+  color:var(--charcoal); line-height:1;
+}
+.ceremonial-addon {
+  font-family:var(--font-body); font-size:12px; font-weight:400;
+  letter-spacing:0.04em; color:var(--sage-deep);
+  padding:5px 12px; background:var(--parchment); border-radius:9999px;
+}
+.ceremonial-addon strong { font-weight:600; color:var(--charcoal); }
+.ceremonial-body { flex:1; }
+.ceremonial-body p {
+  font-family:var(--font-body); font-size:13.5px; font-weight:300;
+  line-height:1.7; color:var(--charcoal-light);
+}
+.ceremonial-body p + p { margin-top:12px; }
+.ceremonial-perfect {
+  margin-top:18px; padding-top:18px;
+  border-top:1px solid var(--parchment);
+  font-family:var(--font-display); font-size:14px; font-weight:400;
+  font-style:italic; line-height:1.55; color:var(--charcoal);
+}
+.ceremonial-safety {
+  margin-top:14px; padding:12px 14px;
+  background:var(--parchment); border-radius:10px;
+  border-left:2px solid var(--sage);
+  font-family:var(--font-body); font-size:12px; font-weight:300;
+  line-height:1.6; color:var(--charcoal-light);
+}
+.ceremonial-safety strong { color:var(--charcoal); font-weight:500; }
+.ceremonial-disclaimer {
+  max-width:720px; margin:40px auto 0; text-align:center;
+  font-family:var(--font-body); font-size:12px; font-weight:300;
+  font-style:italic; line-height:1.7; color:var(--sage-deep);
+}
+@media (max-width:900px) {
+  .ceremonial-grid { grid-template-columns:1fr; max-width:420px; }
+}
+
+/* ── BOOKING PROCESS ──────────────────────── */
+#process {
+  position:relative; isolation:isolate;
+  background:
+    linear-gradient(180deg, rgba(28,32,38,0.55) 0%, rgba(28,32,38,0.62) 45%, rgba(28,32,38,0.78) 100%),
+    url('assets/process-bg.jpg') center/cover no-repeat;
+  background-attachment: scroll, fixed;
+}
+@media (max-width: 900px) {
+  #process { background-attachment: scroll, scroll; }
+}
+#process > div { position:relative; z-index:2; }
+#process .section-header .label { color:#E8DBC4; }
+#process .section-header h2 { color:var(--cream); }
+#process .section-header h2 em { color:#F2D9B0; font-style:italic; }
+#process .section-header p { color:rgba(245,242,236,0.85); }
+.process-layout {
+  display:grid; grid-template-columns:1.4fr 1fr; gap:48px;
+  max-width:var(--max-w); margin:48px auto 0; align-items:start;
+}
+.process-steps {
+  list-style:none; padding:0; margin:0;
+  display:flex; flex-direction:column; gap:14px;
+  position:relative;
+}
+.process-step {
+  display:grid; grid-template-columns:64px 1fr; gap:20px;
+  align-items:flex-start; padding:22px 24px;
+  background:rgba(245,242,236,0.10);
+  -webkit-backdrop-filter:blur(14px) saturate(120%);
+  backdrop-filter:blur(14px) saturate(120%);
+  border:1px solid rgba(245,242,236,0.22);
+  border-radius:14px; position:relative;
+  transition:box-shadow 250ms var(--ease), transform 250ms var(--ease), background 250ms var(--ease);
+}
+.process-step:hover {
+  background:rgba(245,242,236,0.16);
+  box-shadow:0 8px 28px rgba(0,0,0,0.25); transform:translateX(2px);
+}
+.process-step + .process-step::before {
+  content:''; position:absolute; left:54px; top:-14px;
+  width:1px; height:14px; background:rgba(245,242,236,0.35);
+}
+.process-step + .process-step::after {
+  content:''; position:absolute; left:50px; top:-6px;
+  width:9px; height:9px;
+  border-right:1px solid rgba(245,242,236,0.55); border-bottom:1px solid rgba(245,242,236,0.55);
+  transform:rotate(45deg);
+}
+.step-num {
+  width:48px; height:48px; border-radius:50%;
+  background:rgba(245,242,236,0.92); border:1px solid rgba(245,242,236,0.7);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-size:22px; font-weight:400;
+  color:var(--sage-deep); line-height:1;
+}
+.process-step:nth-child(even) .step-num { background:#F2D9B0; color:#8C5A48; border-color:#E8C99B; }
+.step-body h3 {
+  font-family:var(--font-body); font-size:13px; font-weight:600;
+  letter-spacing:0.12em; text-transform:uppercase; color:var(--cream);
+  margin-bottom:6px;
+}
+.step-body p {
+  font-family:var(--font-body); font-size:14px; font-weight:300;
+  line-height:1.65; color:rgba(245,242,236,0.82); margin:0;
+}
+.process-aside { display:flex; flex-direction:column; gap:18px; position:sticky; top:calc(var(--nav-h) + 24px); }
+.aside-card {
+  background:rgba(20,24,28,0.42);
+  -webkit-backdrop-filter:blur(16px) saturate(120%);
+  backdrop-filter:blur(16px) saturate(120%);
+  border-radius:14px; padding:22px 24px;
+  border:1px solid rgba(245,242,236,0.18);
+  border-left:2px solid #E8DBC4;
+}
+.aside-title {
+  font-family:var(--font-body); font-size:11px; font-weight:600;
+  letter-spacing:0.18em; text-transform:uppercase; color:#E8DBC4;
+  margin-bottom:12px;
+}
+.aside-card p, .aside-card ul {
+  font-family:var(--font-body); font-size:13.5px; font-weight:300;
+  line-height:1.7; color:rgba(245,242,236,0.85); margin:0;
+}
+.aside-card ul { padding-left:0; list-style:none; display:flex; flex-direction:column; gap:10px; }
+.aside-card ul li { padding-left:14px; position:relative; }
+.aside-card ul li::before {
+  content:'✦'; position:absolute; left:0; top:1px;
+  color:#F2D9B0; font-size:8px;
+}
+.aside-card strong { color:var(--cream); font-weight:500; }
+.aside-note {
+  background:rgba(245,242,236,0.08);
+  border:1px solid rgba(245,242,236,0.22);
+  border-left:2px solid #F2D9B0;
+}
+.process-cta-wrap {
+  display:flex; flex-direction:column; align-items:center; gap:12px;
+  margin-top:28px;
+}
+.btn-process-cta {
+  display:inline-flex; align-items:center; gap:14px;
+  padding:18px 32px;
+  background:linear-gradient(135deg, #F2D9B0 0%, #E8C99B 100%);
+  color:#3A2418;
+  font-family:var(--font-body); font-size:13px; font-weight:600;
+  letter-spacing:0.16em; text-transform:uppercase;
+  border-radius:9999px; border:1px solid rgba(245,242,236,0.5);
+  text-decoration:none;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.5) inset,
+    0 10px 30px rgba(0,0,0,0.35),
+    0 0 0 0 rgba(242,217,176,0.5);
+  transition:transform 200ms var(--ease), box-shadow 300ms var(--ease), background 300ms var(--ease);
+}
+.btn-process-cta:hover {
+  transform:translateY(-2px);
+  background:linear-gradient(135deg, #F7E4C3 0%, #EFD2A8 100%);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.6) inset,
+    0 14px 38px rgba(0,0,0,0.42),
+    0 0 0 6px rgba(242,217,176,0.18);
+}
+.btn-process-cta:active { transform:translateY(0); }
+.btn-process-cta-arrow {
+  font-family:var(--font-display); font-size:18px; line-height:1;
+  letter-spacing:0; transition:transform 250ms var(--ease);
+}
+.btn-process-cta:hover .btn-process-cta-arrow { transform:translateX(4px); }
+.process-cta-fine {
+  font-family:var(--font-body); font-size:11px; font-weight:400;
+  letter-spacing:0.18em; text-transform:uppercase;
+  color:rgba(245,242,236,0.7);
+}
+@media (max-width:900px) {
+  .process-layout { grid-template-columns:1fr; gap:32px; }
+  .process-aside { position:static; }
+}
+
+/* ── WHY US ────────────────────────────────── */
+#why { background:var(--cream); }
+.why-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:24px; max-width:var(--max-w); margin:0 auto; }
+.why-item { padding:28px 0; border-top:1.5px solid var(--sage-light); }
+.why-num {
+  font-family:var(--font-display); font-size:13px; font-weight:400;
+  color:var(--sage); margin-bottom:14px; letter-spacing:0.06em;
+}
+.why-title {
+  font-family:var(--font-display); font-size:20px; font-weight:400;
+  color:var(--charcoal); margin-bottom:10px; line-height:1.2;
+}
+.why-text {
+  font-family:var(--font-body); font-size:13.5px; font-weight:300;
+  line-height:1.7; color:var(--charcoal-light);
+}
+
+/* ── FAQ ───────────────────────────────────── */
+#faq { background:var(--cream); }
+.faq-grid {
+  display:grid; grid-template-columns:1fr 1.4fr; gap:80px;
+  max-width:var(--max-w); margin:0 auto; align-items:start;
+}
+.faq-aside { position:sticky; top:calc(var(--nav-h) + 24px); }
+.faq-aside .label { display:block; margin-bottom:14px; }
+.faq-aside h2 {
+  font-family:var(--font-display); font-size:clamp(30px,3.5vw,40px);
+  font-weight:400; line-height:1.15; letter-spacing:-0.01em;
+  color:var(--charcoal); margin-bottom:18px;
+}
+.faq-aside p {
+  font-family:var(--font-body); font-size:14.5px; font-weight:300;
+  line-height:1.75; color:var(--charcoal-light); margin-bottom:24px;
+}
+.faq-aside-link {
+  font-family:var(--font-body); font-size:12px; font-weight:500;
+  letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--sage-deep); border-bottom:1px solid var(--sage-light);
+  padding-bottom:2px; transition:color 200ms var(--ease), border-color 200ms var(--ease);
+}
+.faq-aside-link:hover { color:var(--charcoal); border-color:var(--charcoal); }
+.faq-list { display:flex; flex-direction:column; }
+.faq-item {
+  border-bottom:1px solid var(--sage-light);
+  padding:4px 0;
+}
+.faq-item:first-child { border-top:1px solid var(--sage-light); }
+.faq-q {
+  width:100%; background:none; border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:24px; padding:22px 0; text-align:left;
+  font-family:var(--font-display); font-size:18px; font-weight:400;
+  line-height:1.3; color:var(--charcoal);
+  transition:color 200ms var(--ease);
+}
+.faq-q:hover { color:var(--sage-deep); }
+.faq-toggle {
+  flex-shrink:0; width:28px; height:28px; border-radius:50%;
+  border:1px solid var(--sage-light); background:var(--white);
+  display:flex; align-items:center; justify-content:center;
+  position:relative; transition:background 200ms var(--ease), transform 250ms var(--ease);
+}
+.faq-toggle::before, .faq-toggle::after {
+  content:''; position:absolute; background:var(--charcoal-light);
+  transition:transform 250ms var(--ease);
+}
+.faq-toggle::before { width:10px; height:1px; }
+.faq-toggle::after { width:1px; height:10px; }
+.faq-item.open .faq-toggle { background:var(--charcoal); border-color:var(--charcoal); }
+.faq-item.open .faq-toggle::before, .faq-item.open .faq-toggle::after { background:var(--cream); }
+.faq-item.open .faq-toggle::after { transform:scaleY(0); }
+.faq-a {
+  max-height:0; overflow:hidden;
+  transition:max-height 350ms var(--ease), opacity 250ms var(--ease), padding 350ms var(--ease);
+  opacity:0;
+}
+.faq-item.open .faq-a {
+  max-height:400px; opacity:1; padding:0 0 24px;
+}
+.faq-a p {
+  font-family:var(--font-body); font-size:14px; font-weight:300;
+  line-height:1.75; color:var(--charcoal-light); padding-right:52px;
+}
+.faq-a p + p { margin-top:12px; }
+@media (max-width:900px) {
+  .faq-grid { grid-template-columns:1fr; gap:40px; }
+  .faq-aside { position:static; }
+}
+
+/* ── REIKI INFO / VIDEOS ───────────────────── */
+#reiki-info { background:var(--parchment); }
+.reiki-intro { text-align:center; max-width:600px; margin:0 auto 48px; }
+.reiki-videos {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  max-width:var(--max-w); margin:0 auto;
+}
+.reiki-video-card {
+  background:var(--white); border-radius:16px; overflow:hidden;
+  border:1px solid var(--sage-light);
+  box-shadow:0 4px 16px rgba(65,69,67,0.08);
+  display:flex; flex-direction:column;
+  transition:box-shadow 300ms var(--ease), transform 250ms var(--ease);
+}
+.reiki-video-card:hover { box-shadow:0 10px 36px rgba(65,69,67,0.13); transform:translateY(-3px); }
+.reiki-video-frame {
+  position:relative; aspect-ratio:16/9; background:#1a1510;
+  cursor:pointer; overflow:hidden;
+}
+.reiki-video-frame img {
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform 400ms var(--ease), opacity 250ms var(--ease);
+}
+.reiki-video-frame:hover img { transform:scale(1.04); }
+.reiki-video-frame iframe {
+  position:absolute; inset:0; width:100%; height:100%; border:0;
+}
+.reiki-video-overlay {
+  position:absolute; inset:0; z-index:2;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(to top, rgba(20,16,10,0.4), rgba(20,16,10,0.08));
+  transition:background 250ms var(--ease);
+}
+.reiki-video-frame:hover .reiki-video-overlay { background:linear-gradient(to top, rgba(20,16,10,0.3), rgba(20,16,10,0.04)); }
+.reiki-video-play {
+  width:58px; height:58px; border-radius:50%;
+  background:rgba(245,242,236,0.95);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 6px 22px rgba(0,0,0,0.32);
+  transition:transform 150ms var(--ease), background 200ms var(--ease);
+}
+.reiki-video-frame:hover .reiki-video-play { transform:scale(1.08); background:#fff; }
+.reiki-video-play svg { fill:var(--charcoal); margin-left:3px; }
+.reiki-video-body { padding:20px 22px 22px; }
+.reiki-video-kicker {
+  font-family:var(--font-body); font-size:10px; font-weight:500;
+  letter-spacing:0.2em; text-transform:uppercase; color:var(--sage);
+  margin-bottom:8px;
+}
+.reiki-video-title {
+  font-family:var(--font-display); font-size:18px; font-weight:400;
+  color:var(--charcoal); line-height:1.3;
+}
+.reiki-video-link {
+  display:inline-block; margin-top:12px;
+  font-family:var(--font-body); font-size:11px; font-weight:500;
+  letter-spacing:0.08em; text-transform:uppercase; color:var(--sage-deep);
+  border-bottom:1px solid var(--sage-light); padding-bottom:2px;
+  transition:color 200ms var(--ease), border-color 200ms var(--ease);
+}
+.reiki-video-link:hover { color:var(--charcoal); border-color:var(--charcoal); }
+@media (max-width:900px) {
+  .reiki-videos { grid-template-columns:1fr; max-width:460px; }
+}
+
+/* ── Research / studies disclosure ── */
+.research-wrap { max-width:760px; margin:48px auto 0; text-align:center; }
+.research-toggle {
+  display:inline-flex; align-items:center; gap:11px;
+  background:var(--charcoal); color:var(--cream); border:none; cursor:pointer;
+  font-family:var(--font-body); font-size:12px; font-weight:500;
+  letter-spacing:0.12em; text-transform:uppercase;
+  padding:14px 30px; border-radius:9999px;
+  box-shadow:0 4px 18px rgba(65,69,67,0.15);
+  transition:background 250ms var(--ease), transform 150ms var(--ease), box-shadow 250ms var(--ease);
+}
+.research-toggle:hover { background:var(--sage-deep); box-shadow:0 8px 26px rgba(65,69,67,0.22); }
+.research-toggle:active { transform:scale(0.98); }
+.research-toggle-icon {
+  font-family:var(--font-display); font-size:16px; line-height:1; transform:translateY(-1px);
+  transition:transform 300ms var(--ease);
+}
+.research-toggle[aria-expanded="true"] .research-toggle-icon { transform:rotate(45deg) translateY(0); }
+
+.research-panel {
+  max-height:0; overflow:hidden; opacity:0;
+  transition:max-height 450ms var(--ease), opacity 350ms var(--ease), margin-top 350ms var(--ease);
+  margin-top:0; text-align:left;
+}
+.research-panel.open { max-height:1200px; opacity:1; margin-top:28px; }
+.research-card {
+  background:var(--white); border:1px solid var(--sage-light); border-radius:16px;
+  padding:14px 12px; box-shadow:0 4px 16px rgba(65,69,67,0.07);
+}
+.research-card-head {
+  font-family:var(--font-body); font-size:10px; font-weight:500;
+  letter-spacing:0.2em; text-transform:uppercase; color:var(--sage);
+  padding:10px 14px 14px; border-bottom:1px solid var(--sage-light); margin-bottom:6px;
+}
+.research-item {
+  display:flex; gap:16px; align-items:baseline;
+  padding:16px 14px; border-radius:10px; text-decoration:none;
+  transition:background 200ms var(--ease);
+}
+.research-item + .research-item { border-top:1px solid rgba(184,178,150,0.28); }
+.research-item:hover { background:var(--parchment); }
+.research-num {
+  font-family:var(--font-display); font-size:15px; color:var(--sage);
+  flex-shrink:0; width:24px; line-height:1.4;
+}
+.research-item-body { min-width:0; }
+.research-item-title {
+  font-family:var(--font-display); font-size:17px; font-weight:400;
+  color:var(--charcoal); line-height:1.4; text-wrap:pretty;
+  transition:color 200ms var(--ease);
+}
+.research-item:hover .research-item-title { color:var(--sage-deep); }
+.research-item-src {
+  display:inline-flex; align-items:center; gap:5px; margin-top:7px;
+  font-family:var(--font-body); font-size:11px; font-weight:400;
+  letter-spacing:0.08em; color:var(--charcoal-light);
+}
+.research-item-src .arr { color:var(--sage); transition:transform 200ms var(--ease); }
+.research-item:hover .research-item-src .arr { transform:translate(2px,-2px); }
+.research-note {
+  font-family:var(--font-body); font-size:11px; font-weight:400;
+  letter-spacing:0.04em; color:var(--charcoal-light);
+  text-align:center; margin-top:16px; padding:0 12px;
+}
+@media (max-width:560px) {
+  .research-num { display:none; }
+  .research-item { padding:14px 8px; }
+}
+
+/* ── GALLERY ───────────────────────────────── */
+#gallery { background:var(--cream); padding-top:24px; }
+.gallery-intro { text-align:center; max-width:560px; margin:0 auto 48px; }
+.gallery-grid {
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  grid-template-rows:240px 240px;
+  gap:14px;
+  max-width:var(--max-w); margin:0 auto;
+}
+.gallery-grid image-slot {
+  width:100%; height:100%;
+  background:var(--parchment);
+  border:1px solid var(--sage-light);
+  --image-slot-placeholder-color: var(--sage-deep);
+  --image-slot-placeholder-font: 11px var(--font-body);
+}
+.gallery-grid .gallery-img {
+  width:100%; height:100%; object-fit:cover; display:block;
+  border-radius:14px; border:1px solid var(--sage-light);
+  background:var(--parchment);
+}
+.gallery-grid .g-tall { grid-row:span 2; }
+.gallery-caption {
+  text-align:center; margin-top:32px;
+  font-family:var(--font-body); font-size:12px; font-weight:300;
+  letter-spacing:0.08em; color:var(--sage-deep);
+}
+.gallery-caption::before, .gallery-caption::after {
+  content:''; display:inline-block; width:24px; height:1px;
+  background:var(--sage-light); vertical-align:middle; margin:0 14px;
+}
+@media (max-width:768px) {
+  .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:repeat(3,180px); }
+  .gallery-grid .g-tall { grid-row:span 1; grid-column:span 2; }
+}
+
+/* ── TESTIMONIALS ──────────────────────────── */
+#reviews { background:var(--parchment); }
+.reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:var(--max-w); margin:0 auto; }
+.review-card {
+  background:var(--white); border-radius:16px;
+  padding:28px 24px 24px;
+  box-shadow:0 4px 16px rgba(65,69,67,0.08);
+  display:flex; flex-direction:column; gap:16px;
+  transition:box-shadow 250ms var(--ease), transform 250ms var(--ease);
+}
+.review-card:hover { box-shadow:0 8px 28px rgba(65,69,67,0.11); transform:translateY(-2px); }
+.review-stars { color:var(--sage); letter-spacing:2px; font-size:14px; }
+.review-open-quote {
+  font-family:var(--font-display); font-size:48px; color:var(--parchment);
+  line-height:1; margin-bottom:-12px;
+}
+.review-quote {
+  font-family:var(--font-display); font-size:17px; font-weight:400;
+  font-style:italic; line-height:1.65; color:var(--charcoal); flex:1;
+}
+.review-author {
+  font-family:var(--font-body); font-size:11px; font-weight:500;
+  letter-spacing:0.12em; text-transform:uppercase; color:var(--sage);
+  padding-top:12px; border-top:1px solid var(--parchment);
+}
+.review-quote.clamped {
+  display:-webkit-box; -webkit-box-orient:vertical;
+  -webkit-line-clamp:7; overflow:hidden;
+}
+.review-more {
+  align-self:flex-start; background:none; border:none; cursor:pointer;
+  font-family:var(--font-body); font-size:11px; font-weight:500;
+  letter-spacing:0.1em; text-transform:uppercase; color:var(--sage-deep);
+  padding:0; margin-top:-4px;
+  border-bottom:1px solid var(--sage-light);
+  transition:color 200ms var(--ease), border-color 200ms var(--ease);
+}
+.review-more:hover { color:var(--charcoal); border-color:var(--charcoal); }
+
+/* ── AUDIO TESTIMONIAL ─────────────────────── */
+.audio-review {
+  max-width:760px; margin:0 auto 32px;
+  background:var(--charcoal); border-radius:18px;
+  padding:32px 36px; display:flex; gap:28px; align-items:center;
+  box-shadow:0 10px 36px rgba(65,69,67,0.16);
+}
+.audio-review-badge {
+  flex-shrink:0; width:72px; height:72px; border-radius:50%;
+  background:rgba(245,242,236,0.08); border:1px solid rgba(245,242,236,0.22);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--sage-light); font-family:var(--font-display); font-size:30px;
+}
+.audio-review-body { flex:1; min-width:0; }
+.audio-review-label {
+  font-family:var(--font-body); font-size:10px; font-weight:500;
+  letter-spacing:0.2em; text-transform:uppercase; color:var(--sage);
+  margin-bottom:6px;
+}
+.audio-review-title {
+  font-family:var(--font-display); font-size:20px; font-weight:400;
+  font-style:italic; color:var(--cream); line-height:1.3; margin-bottom:16px;
+}
+.audio-player { display:flex; align-items:center; gap:16px; }
+.audio-play-btn {
+  flex-shrink:0; width:48px; height:48px; border-radius:50%;
+  background:var(--cream); border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:transform 150ms var(--ease), background 200ms var(--ease);
+}
+.audio-play-btn:hover { background:#fff; transform:scale(1.05); }
+.audio-play-btn:active { transform:scale(0.96); }
+.audio-play-btn svg { display:block; }
+.audio-play-icon { fill:var(--charcoal); }
+.audio-progress-wrap { flex:1; min-width:0; }
+.audio-track {
+  height:5px; background:rgba(245,242,236,0.16); border-radius:9999px;
+  position:relative; cursor:pointer; overflow:hidden;
+}
+.audio-fill {
+  position:absolute; inset:0 auto 0 0; width:0%;
+  background:var(--sage-light); border-radius:9999px;
+  transition:width 100ms linear;
+}
+.audio-time {
+  margin-top:8px; font-family:var(--font-body); font-size:11px;
+  font-weight:300; letter-spacing:0.04em; color:rgba(245,242,236,0.55);
+  display:flex; justify-content:space-between;
+}
+.audio-review-author {
+  margin-top:16px; font-family:var(--font-body); font-size:10px;
+  font-weight:500; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--sage);
+}
+@media (max-width:600px) {
+  .audio-review { flex-direction:column; text-align:center; padding:28px 24px; }
+  .audio-review-author { text-align:center; }
+}
+
+/* ── INTAKE FORM (modal) ────────────────────── */
+.intake-overlay {
+  display:none; position:fixed; inset:0; z-index:300;
+  background:rgba(20,16,10,0.55); backdrop-filter:blur(6px);
+  align-items:flex-start; justify-content:center;
+  padding:40px 20px; overflow-y:auto;
+}
+.intake-overlay.open { display:flex; animation:fadeIn 250ms var(--ease); }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes slideUp { from{opacity:0; transform:translateY(20px)} to{opacity:1; transform:translateY(0)} }
+.intake-modal {
+  position:relative; background:var(--cream);
+  border-radius:20px; max-width:760px; width:100%;
+  padding:48px 48px 40px; margin:auto;
+  box-shadow:0 24px 80px rgba(20,16,10,0.4);
+  animation:slideUp 350ms var(--ease);
+}
+.intake-close {
+  position:absolute; top:18px; right:18px; z-index:5;
+  width:36px; height:36px; border-radius:50%; border:none;
+  background:var(--white); color:var(--charcoal);
+  font-size:18px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 2px 8px rgba(65,69,67,0.12);
+  transition:background 200ms var(--ease), transform 200ms var(--ease);
+}
+.intake-close:hover { background:var(--parchment); transform:rotate(90deg); }
+.intake-header { text-align:center; margin-bottom:32px; }
+.intake-header .label { display:block; margin-bottom:14px; }
+.intake-header h2 {
+  font-family:var(--font-display); font-size:clamp(28px,3vw,38px); font-weight:400;
+  line-height:1.15; letter-spacing:-0.01em; color:var(--charcoal);
+}
+.intake-header p {
+  margin-top:14px; font-family:var(--font-body); font-size:14.5px;
+  font-weight:300; line-height:1.7; color:var(--charcoal-light);
+  max-width:520px; margin-left:auto; margin-right:auto;
+}
+.intake-form { display:flex; flex-direction:column; gap:28px; }
+.intake-section {
+  display:flex; flex-direction:column; gap:16px;
+  padding-bottom:24px; border-bottom:1px solid var(--sage-light);
+}
+.intake-section:last-of-type { border-bottom:none; padding-bottom:0; }
+.intake-section-head { display:flex; flex-direction:column; gap:4px; margin-bottom:4px; }
+.intake-section-num {
+  font-family:var(--font-body); font-size:10px; font-weight:500;
+  letter-spacing:0.2em; text-transform:uppercase; color:var(--sage);
+}
+.intake-section-title {
+  font-family:var(--font-display); font-size:22px; font-weight:400;
+  color:var(--charcoal); line-height:1.2;
+}
+.intake-section-desc {
+  font-family:var(--font-body); font-size:13.5px; font-weight:300;
+  line-height:1.6; color:var(--charcoal-light);
+}
+.intake-q { display:flex; flex-direction:column; gap:6px; }
+.intake-label {
+  font-family:var(--font-body); font-size:13.5px; font-weight:500;
+  color:var(--charcoal); line-height:1.5;
+}
+.intake-label .req { color:var(--sage-deep); margin-left:4px; }
+.intake-hint {
+  font-family:var(--font-body); font-size:11.5px; font-weight:300;
+  color:var(--charcoal-light); font-style:italic;
+}
+.intake-input, .intake-textarea {
+  background:var(--white); border:1px solid var(--sage-light);
+  border-radius:8px; padding:11px 14px;
+  font-family:var(--font-body); font-size:14.5px; font-weight:300;
+  color:var(--charcoal); outline:none; width:100%;
+  transition:border-color 250ms var(--ease), box-shadow 250ms var(--ease);
+}
+.intake-input::placeholder, .intake-textarea::placeholder {
+  color:var(--charcoal-light); opacity:0.5;
+}
+.intake-input:focus, .intake-textarea:focus {
+  border-color:var(--sage); box-shadow:0 0 0 3px rgba(175,169,140,0.15);
+}
+.intake-textarea { resize:vertical; min-height:80px; line-height:1.6; }
+.intake-options { display:flex; flex-direction:column; gap:8px; margin-top:2px; }
+.intake-option {
+  display:flex; align-items:flex-start; gap:10px;
+  padding:10px 14px; border:1px solid var(--sage-light);
+  border-radius:8px; background:var(--white);
+  cursor:pointer; transition:all 200ms var(--ease);
+  font-family:var(--font-body); font-size:13.5px; font-weight:300;
+  color:var(--charcoal);
+}
+.intake-option:hover { border-color:var(--sage); }
+.intake-option input { margin-top:3px; accent-color:var(--charcoal); cursor:pointer; }
+.intake-option:has(input:checked) {
+  border-color:var(--charcoal);
+  box-shadow:0 0 0 1px var(--charcoal);
+}
+.intake-other-input {
+  margin-top:8px; padding:10px 14px;
+  background:var(--white); border:1px solid var(--sage-light);
+  border-radius:8px;
+  font-family:var(--font-body); font-size:13.5px; font-weight:300;
+  color:var(--charcoal); outline:none; width:100%;
+}
+.intake-other-input:focus {
+  border-color:var(--sage); box-shadow:0 0 0 3px rgba(175,169,140,0.15);
+}
+.intake-policy {
+  background:var(--parchment); border-radius:10px;
+  padding:16px 18px;
+  font-family:var(--font-body); font-size:13px; font-weight:300;
+  line-height:1.7; color:var(--charcoal-light);
+  border-left:2px solid var(--sage);
+}
+.intake-policy strong { color:var(--charcoal); font-weight:500; }
+.intake-submit {
+  background:var(--charcoal); color:var(--cream); border:none;
+  font-family:var(--font-body); font-size:13px; font-weight:500;
+  letter-spacing:0.12em; text-transform:uppercase;
+  padding:15px 40px; border-radius:9999px;
+  align-self:center; cursor:pointer;
+  transition:background 250ms var(--ease), transform 150ms var(--ease);
+  box-shadow:0 4px 20px rgba(65,69,67,0.15);
+  margin-top:4px;
+}
+.intake-submit:hover { background:var(--sage-deep); }
+.intake-submit:active { transform:scale(0.97); }
+.intake-submit:disabled { opacity:0.5; cursor:wait; }
+.intake-success {
+  display:none; text-align:center; padding:24px 16px;
+}
+.intake-success.visible { display:block; }
+.intake-success-icon {
+  width:56px; height:56px; border-radius:50%;
+  background:var(--parchment); display:flex; align-items:center; justify-content:center;
+  margin:0 auto 18px; color:var(--sage-deep); font-size:24px;
+  font-family:var(--font-display);
+}
+.intake-success h3 {
+  font-family:var(--font-display); font-size:28px; font-weight:400;
+  color:var(--charcoal); margin-bottom:14px;
+}
+.intake-success p {
+  font-family:var(--font-body); font-size:15px; font-weight:300;
+  line-height:1.7; color:var(--charcoal-light); max-width:440px; margin:0 auto;
+}
+body.intake-open { overflow:hidden; }
+@media (max-width:700px) {
+  .intake-modal { padding:36px 22px 28px; border-radius:14px; }
+  .intake-overlay { padding:0; }
+}
+
+/* ── CTA STRIP ─────────────────────────────── */
+#cta-strip {
+  position:relative; isolation:isolate;
+  padding:120px 40px; text-align:center;
+  background:
+    linear-gradient(180deg, rgba(15,12,18,0.78) 0%, rgba(15,12,18,0.72) 45%, rgba(15,12,18,0.86) 100%),
+    url('assets/intake-bg.jpg') center/cover no-repeat;
+  background-attachment: scroll, fixed;
+  overflow:hidden;
+}
+@media (max-width: 900px) {
+  #cta-strip { background-attachment: scroll, scroll; padding:88px 28px; }
+}
+#cta-strip::before {
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:1;
+  background:radial-gradient(ellipse at 50% 60%, rgba(242,196,120,0.18) 0%, rgba(242,196,120,0) 60%);
+  mix-blend-mode:screen;
+}
+#cta-strip > * { position:relative; z-index:2; }
+#cta-strip .label { color:#F2D9B0; letter-spacing:0.24em; }
+#cta-strip h2 {
+  font-family:var(--font-display); font-size:clamp(34px,4vw,52px); font-weight:400;
+  line-height:1.15; color:var(--cream); margin:14px 0 20px; letter-spacing:-0.01em;
+  text-shadow:0 2px 18px rgba(0,0,0,0.45);
+}
+#cta-strip h2 em { color:#F7E4C3; font-style:italic; }
+#cta-strip p {
+  font-family:var(--font-body); font-size:16px; font-weight:300;
+  line-height:1.8; color:rgba(245,242,236,0.88); max-width:540px;
+  margin:0 auto 36px; text-shadow:0 1px 8px rgba(0,0,0,0.4);
+}
+.btn-strip {
+  position:relative; isolation:isolate;
+  background:linear-gradient(135deg, #E8C99B 0%, #F2D9B0 50%, #E8C99B 100%);
+  color:#3A2418; border:1px solid rgba(255,236,200,0.55);
+  font-family:var(--font-body); font-size:12.5px; font-weight:600;
+  letter-spacing:0.16em; text-transform:uppercase;
+  padding:18px 52px; border-radius:9999px; display:inline-block;
+  cursor:pointer; overflow:hidden;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.6) inset,
+    0 -1px 0 rgba(120,80,30,0.1) inset,
+    0 10px 32px rgba(0,0,0,0.42),
+    0 0 28px rgba(242,217,176,0.35);
+  animation: goldPulse 3.4s ease-in-out infinite;
+  transition: transform 200ms var(--ease);
+}
+.btn-strip::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(
+    100deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(255,250,230,0.85) 50%,
+    transparent 65%,
+    transparent 100%
+  );
+  background-size:220% 100%;
+  background-position:200% 0;
+  animation: goldShimmer 3.8s ease-in-out infinite;
+  pointer-events:none; mix-blend-mode:screen;
+}
+.btn-strip span { position:relative; z-index:1; }
+.btn-strip:hover {
+  transform:translateY(-2px);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.7) inset,
+    0 14px 40px rgba(0,0,0,0.5),
+    0 0 38px rgba(242,217,176,0.55);
+}
+.btn-strip:active { transform:translateY(0) scale(0.98); }
+@keyframes goldPulse {
+  0%, 100% {
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.6) inset,
+      0 -1px 0 rgba(120,80,30,0.1) inset,
+      0 10px 32px rgba(0,0,0,0.42),
+      0 0 22px rgba(242,217,176,0.32);
+  }
+  50% {
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.7) inset,
+      0 -1px 0 rgba(120,80,30,0.1) inset,
+      0 12px 36px rgba(0,0,0,0.45),
+      0 0 44px rgba(247,228,195,0.65);
+  }
+}
+@keyframes goldShimmer {
+  0% { background-position:200% 0; }
+  60%, 100% { background-position:-120% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-strip, .btn-strip::before { animation:none; }
+}
+.strip-reassurance {
+  margin-top:24px; font-family:var(--font-body); font-size:12px; font-weight:300;
+  color:rgba(245,242,236,0.72); letter-spacing:0.08em;
+  text-shadow:0 1px 6px rgba(0,0,0,0.35);
+}
+
+/* ── CONTACT ───────────────────────────────── */
+#contact { background:var(--cream); }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; max-width:var(--max-w); margin:0 auto; align-items:start; }
+.contact-form { display:flex; flex-direction:column; gap:16px; }
+.form-group { display:flex; flex-direction:column; gap:6px; }
+.form-label {
+  font-family:var(--font-body); font-size:11px; font-weight:500;
+  letter-spacing:0.1em; text-transform:uppercase; color:var(--charcoal-light);
+}
+.form-input, .form-textarea {
+  background:var(--white); border:1px solid var(--sage-light);
+  border-radius:8px; padding:13px 16px;
+  font-family:var(--font-body); font-size:15px; font-weight:300;
+  color:var(--charcoal); outline:none;
+  transition:border-color 250ms var(--ease), box-shadow 250ms var(--ease);
+  width:100%;
+}
+.form-input::placeholder, .form-textarea::placeholder { color:var(--charcoal-light); opacity:0.5; }
+.form-input:focus, .form-textarea:focus {
+  border-color:var(--sage); box-shadow:0 0 0 3px rgba(175,169,140,0.15);
+}
+.form-textarea { resize:vertical; min-height:120px; line-height:1.6; }
+.btn-form {
+  background:var(--charcoal); color:var(--cream); border:none;
+  font-family:var(--font-body); font-size:12px; font-weight:500;
+  letter-spacing:0.12em; text-transform:uppercase;
+  padding:15px 24px; border-radius:9999px;
+  transition:background 250ms var(--ease), transform 150ms var(--ease);
+  margin-top:4px;
+}
+.btn-form:hover { background:var(--sage-deep); }
+.btn-form:active { transform:scale(0.97); }
+.form-note {
+  font-family:var(--font-body); font-size:12px; font-weight:300;
+  color:var(--charcoal-light); letter-spacing:0.02em; margin-top:8px;
+}
+.form-consent {
+  display:flex; gap:11px; align-items:flex-start;
+  margin-top:4px;
+}
+.form-consent input[type="checkbox"] {
+  appearance:none; -webkit-appearance:none;
+  flex-shrink:0; width:18px; height:18px; margin-top:2px;
+  border:1.5px solid var(--sage); border-radius:5px; background:var(--white);
+  cursor:pointer; position:relative;
+  transition:background 200ms var(--ease), border-color 200ms var(--ease);
+}
+.form-consent input[type="checkbox"]:checked { background:var(--charcoal); border-color:var(--charcoal); }
+.form-consent input[type="checkbox"]:checked::after {
+  content:''; position:absolute; left:5px; top:1px;
+  width:5px; height:10px; border:solid var(--cream); border-width:0 2px 2px 0;
+  transform:rotate(45deg);
+}
+.form-consent input[type="checkbox"]:focus-visible { box-shadow:0 0 0 3px rgba(175,169,140,0.3); }
+.form-consent label, .form-consent .consent-text {
+  font-family:var(--font-body); font-size:13px; font-weight:300;
+  color:var(--charcoal); line-height:1.55;
+}
+.form-consent label { cursor:pointer; }
+.form-consent .req { color:var(--sage); }
+.form-consent a {
+  color:var(--sage-deep); border-bottom:1px solid var(--sage-light); padding-bottom:1px;
+  transition:color 200ms var(--ease), border-color 200ms var(--ease);
+}
+.form-consent a:hover { color:var(--charcoal); border-color:var(--charcoal); }
+
+.contact-info { display:flex; flex-direction:column; gap:32px; padding-top:8px; }
+.contact-detail {
+  display:flex; flex-direction:column; gap:6px;
+}
+.contact-detail-label {
+  font-family:var(--font-body); font-size:10px; font-weight:500;
+  letter-spacing:0.2em; text-transform:uppercase; color:var(--sage);
+}
+.contact-detail-value {
+  font-family:var(--font-body); font-size:15px; font-weight:300;
+  color:var(--charcoal); line-height:1.6;
+}
+.contact-detail-value a { transition:color 200ms; }
+.contact-detail-value a:hover { color:var(--sage-deep); }
+.contact-distance {
+  font-family:var(--font-body); font-size:12px; font-weight:400;
+  color:var(--charcoal-light); letter-spacing:0.06em;
+}
+.contact-distance::before { content:'✦  '; font-size:7px; color:var(--sage); }
+.contact-socials { display:flex; gap:12px; }
+.contact-social {
+  display:inline-flex; align-items:center; gap:9px;
+  padding:10px 18px 10px 14px;
+  border:1px solid var(--sage-light); border-radius:9999px;
+  background:var(--white);
+  font-family:var(--font-body); font-size:13px; font-weight:400;
+  letter-spacing:0.02em; color:var(--charcoal);
+  transition:border-color 200ms var(--ease), color 200ms var(--ease), background 200ms var(--ease), transform 150ms var(--ease);
+}
+.contact-social:hover { border-color:var(--charcoal); transform:translateY(-1px); }
+.contact-social svg { display:block; flex-shrink:0; fill:var(--sage-deep); transition:fill 200ms var(--ease); }
+.contact-social:hover svg { fill:var(--charcoal); }
+.contact-quote-card {
+  background:var(--parchment); border-radius:14px;
+  padding:24px 26px; border-left:2px solid var(--sage);
+}
+.contact-quote-card p {
+  font-family:var(--font-display); font-size:17px; font-weight:400;
+  font-style:italic; line-height:1.65; color:var(--charcoal);
+}
+
+/* ── FOOTER ────────────────────────────────── */
+#footer { background:var(--charcoal); padding:64px 40px 36px; }
+.footer-inner {
+  max-width:var(--max-w); margin:0 auto;
+  display:grid; grid-template-columns:1fr auto; gap:64px;
+  align-items:start; margin-bottom:48px;
+}
+.footer-logo { display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+.footer-logo img { height:52px; width:auto; display:block; }
+.footer-logo .nav-wordmark { font-size:22px; color:var(--cream); }
+.footer-logo .nav-wordmark em { color:var(--cream); opacity:0.7; }
+.footer-tagline {
+  font-family:var(--font-display); font-size:17px; font-weight:400;
+  font-style:italic; color:rgba(245,242,236,0.45); line-height:1.6;
+}
+.footer-nav { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+.footer-nav a, .footer-nav span {
+  font-family:var(--font-body); font-size:13px; font-weight:300;
+  color:rgba(245,242,236,0.5); letter-spacing:0.02em;
+  transition:color 200ms var(--ease);
+  padding:4px 8px;
+}
+.footer-nav a:hover { color:rgba(245,242,236,0.85); }
+.footer-nav .sep { color:var(--sage); font-size:9px; padding:4px 0; pointer-events:none; }
+.footer-divider { max-width:var(--max-w); margin:0 auto; border:none; border-top:1px solid rgba(255,255,255,0.08); margin-bottom:24px; }
+.footer-bottom {
+  max-width:var(--max-w); margin:0 auto;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+}
+.footer-copy {
+  font-family:var(--font-body); font-size:12px; color:rgba(245,242,236,0.3);
+}
+.footer-services {
+  font-family:var(--font-body); font-size:10px; font-weight:400;
+  letter-spacing:0.18em; text-transform:uppercase; color:var(--sage-deep);
+}
+
+/* ── FADE IN on scroll ─────────────────────── */
+.fade-up {
+  opacity:0; transform:translateY(24px);
+  transition:opacity 700ms var(--ease), transform 700ms var(--ease);
+}
+.fade-up.visible { opacity:1; transform:translateY(0); }
+
+/* ── RESPONSIVE ────────────────────────────── */
+@media (max-width:900px) {
+  #hero { grid-template-columns:1fr; text-align:center; }
+  .hero-content { padding:60px 32px; max-width:none; margin:0 auto; }
+  .hero-actions { justify-content:center; }
+  .hero-trust { justify-content:center; }
+  .hero-visual { display:none; }
+  .about-grid { grid-template-columns:1fr; gap:48px; }
+  .offerings-grid { grid-template-columns:1fr; max-width:420px; }
+  .why-grid { grid-template-columns:repeat(2,1fr); }
+  .reviews-grid { grid-template-columns:1fr; max-width:420px; margin:0 auto; }
+  .contact-grid { grid-template-columns:1fr; gap:48px; }
+  .footer-inner { grid-template-columns:1fr; gap:32px; }
+  .nav-links { display:none; }
+  .hamburger { display:flex; }
+  .section { padding:72px 32px; }
+  #trust { padding:20px 32px; }
+  .trust-inner { gap:10px 20px; flex-wrap:wrap; justify-content:center; overflow:visible; }
+  .trust-item { font-size:10px; }
+}
+@media (max-width:600px) {
+  .why-grid { grid-template-columns:1fr; }
+  .container, .section { padding-left:24px; padding-right:24px; }
+  .nav-inner { padding:0 24px; }
+  .nav-logo img { height:36px; }
+  #trust { padding:16px 24px; }
+}
+
+/* Animated circles */
+@keyframes rotateSlow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes rotateSlowReverse { from{transform:rotate(0deg)} to{transform:rotate(-360deg)} }
+.circle-ring-1 { animation:rotateSlow 18s linear infinite; transform-origin:center; }
+.circle-ring-2 { animation:rotateSlowReverse 26s linear infinite; transform-origin:center; }
+.circle-ring-3 { animation:rotateSlow 36s linear infinite; transform-origin:center; }
+.circle-ring-4 { animation:rotateSlowReverse 48s linear infinite; transform-origin:center; }
+</style>
+</head>
+<body>
+
+<!-- ══ NAVIGATION ══ -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero" aria-label="Sacred Sound & Spirit"><img src="assets/logo-mortar.png" alt="Sacred Sound &amp; Spirit"><span class="nav-wordmark">Sacred Sound <em>&amp;</em> Spirit</span></a>
+    <div class="nav-links" role="list">
+      <a class="nav-link" href="#about" role="listitem">About</a>
+      <a class="nav-link" href="#offerings" role="listitem">Offerings</a>
+      <a class="nav-link" href="#why" role="listitem">Why Me</a>
+      <a class="nav-link" href="#reiki-info" role="listitem">Learn</a>
+      <a class="nav-link" href="#reviews" role="listitem">Reviews</a>
+      <a class="nav-link" href="#contact" role="listitem">Contact</a>
+      <a class="nav-cta" href="#cta-strip" id="nav-cta-open">Free Consultation</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+  <a class="nav-link" href="#about">About</a>
+  <a class="nav-link" href="#offerings">Offerings</a>
+  <a class="nav-link" href="#why">Why Me</a>
+  <a class="nav-link" href="#reiki-info">Learn</a>
+  <a class="nav-link" href="#reviews">Reviews</a>
+  <a class="nav-link" href="#contact">Contact</a>
+  <a class="nav-link" href="Legal.html">Legal</a>
+  <a class="nav-cta" href="#cta-strip">Free Consultation</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-content fade-up">
+    <div class="hero-eyebrow label">Sacred Sound &amp; Spirit</div>
+    <h1 class="hero-h1">Healing with<br>Reiki<br><em>and Sound</em></h1>
+    <p class="hero-sub">Rediscover the calm, clarity, and wholeness that already lives within you. Personalized energy healing rooted in compassion, sound, and sacred intention.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#contact">Book Free Consultation</a>
+      <a class="btn-ghost" href="#offerings">Explore offerings ↓</a>
+    </div>
+
+  </div>
+  <div class="hero-visual" aria-hidden="true">
+    <div class="circles-wrap">
+      <svg viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outermost ring -->
+        <g class="circle-ring-4">
+          <circle cx="190" cy="190" r="175" stroke="#D4CEBC" stroke-width="0.75" stroke-dasharray="4 8" opacity="0.45"/>
+          <text font-family="'Inter', sans-serif" font-size="11" font-weight="400" letter-spacing="0.18em" fill="#D4CEBC" opacity="0.7" text-anchor="middle">
+            <textPath href="#ring4-path" startOffset="12%">SPIRIT</textPath>
+          </text>
+          <path id="ring4-path" d="M 190 15 A 175 175 0 1 1 189.9 15" fill="none"/>
+        </g>
+        <!-- Ring 3 -->
+        <g class="circle-ring-3">
+          <circle cx="190" cy="190" r="135" stroke="#C8C2AE" stroke-width="1" opacity="0.4"/>
+          <circle cx="190" cy="55" r="4" fill="#C8C2AE" opacity="0.6"/>
+          <text font-family="'Baskervville', Georgia, serif" font-size="13" font-weight="400" font-style="italic" fill="#D4CEBC" opacity="0.85" text-anchor="middle">
+            <textPath href="#ring3-path" startOffset="30%">Healing</textPath>
+          </text>
+          <path id="ring3-path" d="M 190 55 A 135 135 0 1 1 189.9 55" fill="none"/>
+        </g>
+        <!-- Ring 2 -->
+        <g class="circle-ring-2">
+          <circle cx="190" cy="190" r="98" stroke="#C8C2AE" stroke-width="1.25" stroke-dasharray="2 6" opacity="0.5"/>
+          <circle cx="190" cy="92" r="3.5" fill="#C8C2AE" opacity="0.7"/>
+          <circle cx="288" cy="190" r="3.5" fill="#C8C2AE" opacity="0.7"/>
+          <text font-family="'Inter', sans-serif" font-size="10" font-weight="400" letter-spacing="0.2em" fill="#D4CEBC" opacity="0.8" text-anchor="middle">
+            <textPath href="#ring2-path" startOffset="58%">SOUND</textPath>
+          </text>
+          <path id="ring2-path" d="M 190 92 A 98 98 0 1 1 189.9 92" fill="none"/>
+        </g>
+        <!-- Inner ring -->
+        <g class="circle-ring-1">
+          <circle cx="190" cy="190" r="60" stroke="#AFA98C" stroke-width="1.5" opacity="0.7"/>
+          <circle cx="190" cy="130" r="4.5" fill="#AFA98C" opacity="0.9"/>
+          <circle cx="250" cy="190" r="4.5" fill="#AFA98C" opacity="0.9"/>
+          <circle cx="190" cy="250" r="4.5" fill="#AFA98C" opacity="0.9"/>
+          <circle cx="130" cy="190" r="4.5" fill="#AFA98C" opacity="0.9"/>
+          <text font-family="'Inter', sans-serif" font-size="9" font-weight="500" letter-spacing="0.25em" fill="#D4CEBC" opacity="0.9" text-anchor="middle">
+            <textPath href="#ring1-path" startOffset="25%">REIKI</textPath>
+          </text>
+          <path id="ring1-path" d="M 190 130 A 60 60 0 1 1 189.9 130" fill="none"/>
+        </g>
+        <!-- Center -->
+        <circle cx="190" cy="190" r="22" fill="rgba(245,242,236,0.12)" stroke="#AFA98C" stroke-width="1.5"/>
+        <text x="190" y="196" font-family="'Baskervville', Georgia, serif" font-size="12" font-weight="400" fill="#D4CEBC" text-anchor="middle">✦</text>
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ TRUST BAR ══ -->
+<div id="trust" role="complementary" aria-label="Trust indicators">
+  <div class="trust-inner">
+    <div class="trust-item">Certified Reiki Master</div>
+    <div class="trust-item">Healthcare Professional Background</div>
+    <div class="trust-item">Distance &amp; In-Person Sessions</div>
+    <div class="trust-item">Human &amp; Animal Healing</div>
+    <div class="trust-item">Free Integration Call with Every Session</div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<section id="about" class="section">
+  <div class="about-grid">
+    <div>
+      <div class="section-header fade-up">
+        <span class="label">My Story</span>
+        <h2>I know what it feels like<br>to be out of alignment</h2>
+      </div>
+      <div class="about-text fade-up">
+        <p>After years in healthcare risk management, I understood stress, loss, and burnout from the inside. I saw firsthand how the pace of everyday life can quietly disconnect us from our own inner calm.</p>
+        <p>My path shifted through plant medicine and self-discovery, which led me to the profound practice of Reiki. Through my own healing journey, I discovered that when we care for our energy and emotions, everything else begins to shift — our health, our relationships, our sense of purpose.</p>
+        <p>Every session I offer is rooted in compassion, reverence, and deep respect for the mind–body–spirit connection. I'm here to hold space for your process — using Reiki, sound therapy, and mindful coaching to help you release tension, find clarity, and reconnect to the steady, peaceful core that's always been within you.</p>
+        <a class="about-link" href="#contact">Let's connect →</a>
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="about-video">
+        <div class="about-video-frame" id="aboutVideoFrame">
+          <video id="aboutVideo" src="media/practitioner-intro.mp4" preload="metadata" playsinline></video>
+          <div class="about-video-overlay">
+            <span class="about-video-play">
+              <svg width="16" height="18" viewBox="0 0 16 18"><path d="M0 1.3C0 .5.9 0 1.6.4l13 7.7c.7.4.7 1.4 0 1.8l-13 7.7C.9 18 0 17.5 0 16.7V1.3z"></path></svg>
+            </span>
+          </div>
+        </div>
+        <div class="about-video-info">
+          <span class="label">Video Introduction</span>
+          <h3>Meet me — a personal hello</h3>
+          <p>A short visiting card so you can get a feel for my energy before we begin.</p>
+        </div>
+      </div>
+      <div class="about-quote">
+        <blockquote>"For me, holistic healing isn't just a service — it's a way to help people remember who they are beneath the overwhelm."</blockquote>
+      </div>
+      <div class="credential-cards">
+        <div class="credential-card">
+          <div class="cred-icon" style="font-family:var(--font-body);font-size:18px;font-weight:400">✚</div>
+          <div>
+            <div class="cred-title">Healthcare Background</div>
+            <div class="cred-text">Career in healthcare risk management — bringing safe, grounded, professional care to every session.</div>
+          </div>
+        </div>
+        <div class="credential-card">
+          <div class="cred-icon">✦</div>
+          <div>
+            <div class="cred-title">Certified Reiki Master</div>
+            <div class="cred-text">Trained in traditional Usui Reiki with a holistic, spirit-centered approach.</div>
+          </div>
+        </div>
+        <div class="credential-card">
+          <div class="cred-icon" style="font-family:var(--font-body);font-size:11px;letter-spacing:0;">Hz</div>
+          <div>
+            <div class="cred-title">Sound Healing Practitioner</div>
+            <div class="cred-text">Tuning forks, sound bowls, and vocal frequency work integrated with Reiki energy healing.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PHILOSOPHY ══ -->
+<section id="philosophy">
+  <div class="reading" style="text-align:center">
+    <div class="fade-up">
+      <span class="label">My Philosophy</span>
+      <h2>Divinely designed<br><em>to heal</em></h2>
+      <p>I believe everyone is divinely designed with the ability to heal. Guided by God and the infinite wisdom of Divine Intelligence, my work helps clients reconnect with their Creator's blueprint for wholeness — awakening the God-given healing power already within you. Each session is approached with compassion, reverence, and deep honoring of the mind–body–spirit connection.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ OFFERINGS ══ -->
+<section id="offerings" class="section">
+  <div style="max-width:var(--max-w);margin:0 auto">
+    <div class="section-header fade-up" style="text-align:center;max-width:none">
+      <span class="label">Offerings &amp; Pricing</span>
+      <h2>Choose your<br>healing path</h2>
+      <p style="margin:16px auto 0">Every session is tailored to your unique needs. No templates — just intentional, personalized healing.</p>
+    </div>
+  </div>
+  <div class="offerings-grid fade-up">
+
+    <!-- Card 1 — Featured -->
+    <div class="offering-card featured">
+      <div class="badge">Most Popular</div>
+      <div class="offering-icon">✦</div>
+      <div class="offering-title">Energy Healing</div>
+      <div class="offering-duration">1 hr 40 min · Tailored to your needs</div>
+      <ul class="offering-services">
+        <li><span class="svc-name">Distance Reiki</span><span class="svc-price">$75</span></li>
+        <li><span class="svc-name">Distance Medical Reiki</span><span class="svc-price">$75</span></li>
+        <li><span class="svc-name">Animal Reiki</span><span class="svc-price">$35</span></li>
+        <li><span class="svc-name">Indigenous Egg Energy Cleanse</span><span class="svc-price">$55</span></li>
+        <li>Reiki with Tuning Forks — Sonic Alignment Session</li>
+        <li>Reiki with Sound Bowls — Harmonic Energy Bath</li>
+        <li>Voice Tuning + Reiki — Vocal Resonance Healing</li>
+      </ul>
+      <div class="offering-footer">
+        <div>
+          <div class="offering-price">from $155</div>
+          <div class="offering-fine">Includes 1 free integration call</div>
+        </div>
+        <a class="btn-offering" href="https://site-aqntofg8e.godaddysites.com/#" target="_blank" rel="noopener">Book This Session</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="offering-card">
+      <div class="offering-icon" style="font-size:16px;letter-spacing:0.2em">— Hz —</div>
+      <div class="offering-title">Sound Therapy</div>
+      <div class="offering-duration">30 min · Tailored to your needs</div>
+      <ul class="offering-services">
+        <li>Tuning Fork Sessions</li>
+        <li>Sound Bowl Sessions</li>
+        <li>Voice Frequency Work</li>
+        <li><span class="svc-name">Private Sound Bath<span style="display:block;font-size:11px;color:var(--sage);letter-spacing:0.02em;margin-top:2px">Up to 5 people · +$35 each additional</span></span><span class="svc-price">$250</span></li>
+      </ul>
+      <div class="offering-footer">
+        <div>
+          <div class="offering-price">$66</div>
+          <div class="offering-fine">Includes 1 free integration call</div>
+        </div>
+        <a class="btn-offering-outline" href="https://site-aqntofg8e.godaddysites.com/#" target="_blank" rel="noopener">Book This Session</a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="offering-card">
+      <div class="offering-icon" style="font-size:14px;letter-spacing:0.08em;font-family:var(--font-display);font-weight:400">— Care —</div>
+      <div class="offering-title">Integration &amp; Support</div>
+      <div class="offering-duration">Flexible · Sliding scale</div>
+      <ul class="offering-services">
+        <li>Trauma-Informed Coaching</li>
+        <li>Grief Support</li>
+        <li>Gentle Guidance &amp; Integration</li>
+        <li>Empowerment Path Coaching — Holding Light Sessions</li>
+        <li>Spiritual Bath Cleanse</li>
+      </ul>
+      <div class="offering-footer">
+        <div>
+          <div class="offering-price">$44 – $66</div>
+          <div class="offering-fine">Free with any energy or sound session</div>
+        </div>
+        <a class="btn-offering-outline" href="https://site-aqntofg8e.godaddysites.com/#" target="_blank" rel="noopener">Book This Session</a>
+      </div>
+    </div>
+
+  </div>
+  <div class="discount-note fade-up">
+    <span class="discount-icon" aria-hidden="true">✦</span>
+    <p><strong>Discounted rates available</strong> for college students, cancer patients, and first-time moms. Healing should be accessible to all — please reach out to discuss what works for you.</p>
+  </div>
+</section>
+
+<!-- ══ CEREMONIAL ADD-ONS ══ -->
+<section id="ceremonial" class="section">
+  <div style="max-width:var(--max-w);margin:0 auto">
+    <div class="section-header ceremonial-intro fade-up">
+      <span class="label">Ceremonial Add-Ons</span>
+      <h2>Deepen your<br>experience</h2>
+      <p style="margin:16px auto 0">Each offering is served in a calming ceremonial space with intention, presence, and care. Enjoy them on their own, or add them to any healing session, sound bath, Reiki session, or coaching experience.</p>
+      <div class="ceremonial-discount"><span>Receive <strong>$5 off</strong> when added to another service</span></div>
+    </div>
+    <div class="ceremonial-grid fade-up">
+
+      <!-- Cacao -->
+      <div class="ceremonial-card">
+        <div class="ceremonial-icon">Cacao</div>
+        <div class="ceremonial-title">Ceremonial Cacao</div>
+        <div class="ceremonial-prices">
+          <span class="ceremonial-price">$30</span>
+          <span class="ceremonial-addon">Add-on <strong>$25</strong></span>
+        </div>
+        <div class="ceremonial-body">
+          <p>Used for centuries by Indigenous cultures of Central and South America in heart-opening rituals, meditation, and community gatherings. Unlike regular hot chocolate, ceremonial cacao is minimally processed and prepared intentionally to support emotional connection and inner reflection.</p>
+          <p>Cacao may help promote relaxation, emotional openness, creativity, and a deeper connection to yourself — a gentle sense of warmth, grounding, and clarity.</p>
+        </div>
+        <p class="ceremonial-perfect">Perfect for those wanting to slow down, soften, and enter their healing with an open heart.</p>
+      </div>
+
+      <!-- Blue Lotus -->
+      <div class="ceremonial-card">
+        <div class="ceremonial-icon">Blue Lotus</div>
+        <div class="ceremonial-title">Blue Lotus<br>Tea Ceremony</div>
+        <div class="ceremonial-prices">
+          <span class="ceremonial-price">$25</span>
+          <span class="ceremonial-addon">Add-on <strong>$20</strong></span>
+        </div>
+        <div class="ceremonial-body">
+          <p>Rooted in ancient Egyptian traditions, where it was used in spiritual ceremonies, meditation, and sacred rituals. Known as a calming botanical, blue lotus has long been associated with relaxation, intuition, and gentle emotional release.</p>
+          <p>This tea may help support a peaceful state of mind, deepen meditation, and encourage nervous system relaxation. Many describe the experience as dreamy, soothing, and grounding.</p>
+        </div>
+        <p class="ceremonial-perfect">Creates space to unwind, reconnect inward, and settle into stillness before or after your session.</p>
+      </div>
+
+      <!-- Kava -->
+      <div class="ceremonial-card">
+        <div class="ceremonial-icon">Kava</div>
+        <div class="ceremonial-title">Kava Ceremony</div>
+        <div class="ceremonial-prices">
+          <span class="ceremonial-price">$20</span>
+          <span class="ceremonial-addon">Add-on <strong>$15</strong></span>
+        </div>
+        <div class="ceremonial-body">
+          <p>Traditionally used throughout the South Pacific for centuries in community gatherings and ceremonial practices to promote relaxation, connection, and peace.</p>
+          <p>Kava may help calm the nervous system, ease tension, and support emotional relaxation without mental fog — a beautiful addition for those seeking grounding and stress relief before a session.</p>
+        </div>
+        <p class="ceremonial-safety"><strong>Please note:</strong> Kava can cause drowsiness or deep relaxation. For safety, it is not recommended for clients who are driving themselves immediately afterward.</p>
+      </div>
+
+    </div>
+    <p class="ceremonial-disclaimer fade-up">All ceremonial offerings are optional and intended to support relaxation, mindfulness, and intentional healing experiences. These offerings are not intended to diagnose, treat, or cure medical conditions.</p>
+  </div>
+</section>
+
+<!-- ══ BOOKING PROCESS ══ -->
+<section id="process" class="section">
+  <div style="max-width:var(--max-w);margin:0 auto">
+    <div class="section-header fade-up" style="text-align:center;max-width:none">
+      <span class="label">How To Book</span>
+      <h2>Your session,<br><em>step by step</em></h2>
+      <p style="margin:16px auto 0">Simple steps to support your healing journey — no rush, no pressure.</p>
+      <div class="process-cta-wrap">
+        <a class="btn-process-cta" href="https://site-aqntofg8e.godaddysites.com/#" target="_blank" rel="noopener">
+          <span class="btn-process-cta-label">Book Your Session</span>
+          <span class="btn-process-cta-arrow" aria-hidden="true">→</span>
+        </a>
+        <span class="process-cta-fine">Receive a reply within 24 hrs · No obligation</span>
+      </div>
+    </div>
+    <div class="process-layout">
+      <ol class="process-steps fade-up">
+        <li class="process-step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Reach Out</h3>
+            <p>Click the &ldquo;Book Your Session&rdquo; button to get started.</p>
+          </div>
+        </li>
+        <li class="process-step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Complete Intake Form</h3>
+            <p>It will prompt you to fill out an intake form to share what's going on and what you're hoping for.</p>
+          </div>
+        </li>
+        <li class="process-step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>I Review Your Responses</h3>
+            <p>I will review the form to ensure we are a good fit for each other.</p>
+          </div>
+        </li>
+        <li class="process-step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>You Receive Available Times</h3>
+            <p>If we're aligned, you'll receive a text with available times (please make sure to provide your phone number on the intake).</p>
+          </div>
+        </li>
+        <li class="process-step">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h3>Submit Your Deposit</h3>
+            <p>A 50% deposit is required to secure your appointment.</p>
+          </div>
+        </li>
+        <li class="process-step">
+          <div class="step-num">6</div>
+          <div class="step-body">
+            <h3>Your Session Is Confirmed</h3>
+            <p>You'll receive a text confirming your appointment. I can't wait to support you on your journey.</p>
+          </div>
+        </li>
+      </ol>
+      <aside class="process-aside fade-up">
+        <div class="aside-card">
+          <div class="aside-title">Not Aligned (or Unsure)</div>
+          <p>I may follow up with a few questions for clarity, or kindly refer you to someone who may be a better fit.</p>
+        </div>
+        <div class="aside-card aside-note">
+          <div class="aside-title">Please Note</div>
+          <ul>
+            <li>Cancellations must be made <strong>24 hours in advance</strong> to transfer your deposit.</li>
+            <li>Cancellations after 24 hours are <strong>non-refundable and non-transferable</strong>.</li>
+            <li>Thank you for honoring this process — it allows me to show up fully for you.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY US ══ -->
+<section id="why" class="section">
+  <div style="max-width:var(--max-w);margin:0 auto">
+    <div class="section-header fade-up" style="text-align:center;max-width:none;margin-bottom:56px">
+      <span class="label">Why Sacred Sound &amp; Spirit</span>
+      <h2>Healing that goes<br>beyond the surface</h2>
+    </div>
+    <div class="why-grid fade-up">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div class="why-title">Unique Background</div>
+        <div class="why-text">Healthcare expertise meets holistic healing — a level of trust and professionalism you won't find elsewhere.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div class="why-title">Fully Personalized</div>
+        <div class="why-text">Every session is adapted to you — no scripts, no templates, only what your body and spirit need.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div class="why-title">All-in-One</div>
+        <div class="why-text">Reiki, sound therapy, and integration coaching under one roof, with one practitioner who knows your journey.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <div class="why-title">Flexible Access</div>
+        <div class="why-text">In-person, distance, and animal sessions — healing available wherever you are.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">05</div>
+        <div class="why-title">Spirit-Led</div>
+        <div class="why-text">Every session is held with love, reverence, and Divine guidance at the center.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<section id="gallery" class="section">
+  <div style="max-width:var(--max-w);margin:0 auto">
+    <div class="section-header gallery-intro fade-up">
+      <span class="label">Sacred Space</span>
+      <h2>Where the work happens</h2>
+      <p>A glimpse into the studio, the rituals, and the energy held during each session.</p>
+    </div>
+    <div class="gallery-grid fade-up">
+      <img class="gallery-img g-tall" src="gallery/gallery-1.jpg" alt="Sacred Sound studio space" loading="lazy">
+      <img class="gallery-img" src="gallery/gallery-2.jpg" alt="Singing bowls" loading="lazy">
+      <img class="gallery-img" src="gallery/gallery-3.jpg" alt="Crystal altar" loading="lazy">
+      <img class="gallery-img" src="gallery/gallery-4.jpg" alt="Session in progress" loading="lazy">
+      <img class="gallery-img" src="gallery/gallery-5.jpg" alt="Practitioner portrait" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section id="reviews" class="section" style="background:var(--parchment)">
+  <div style="max-width:var(--max-w);margin:0 auto">
+    <div class="section-header fade-up" style="text-align:center;max-width:none">
+      <span class="label">Client Stories</span>
+      <h2>What people say after<br>their first session</h2>
+    </div>
+    <div class="audio-review fade-up">
+      <div class="audio-review-badge" aria-hidden="true">♪</div>
+      <div class="audio-review-body">
+        <div class="audio-review-label">Voice Note · From a Client</div>
+        <div class="audio-review-title">"Hear her story, in her own words."</div>
+        <div class="audio-player">
+          <button class="audio-play-btn" id="audioPlayBtn" aria-label="Play audio testimonial">
+            <svg class="audio-play-svg" width="16" height="18" viewBox="0 0 16 18">
+              <path class="audio-play-icon" d="M0 1.3C0 .5.9 0 1.6.4l13 7.7c.7.4.7 1.4 0 1.8l-13 7.7C.9 18 0 17.5 0 16.7V1.3z"></path>
+            </svg>
+          </button>
+          <div class="audio-progress-wrap">
+            <div class="audio-track" id="audioTrack">
+              <div class="audio-fill" id="audioFill"></div>
+            </div>
+            <div class="audio-time">
+              <span id="audioCurrent">0:00</span>
+              <span id="audioDuration">0:00</span>
+            </div>
+          </div>
+        </div>
+        <div class="audio-review-author">A Grateful Client</div>
+        <audio id="audioEl" preload="metadata" src="audio/client-testimonial.mp3"></audio>
+      </div>
+    </div>
+    <div class="reviews-grid fade-up">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-open-quote">"</div>
+        <p class="review-quote clamped" id="reviewRebekah">I'm so grateful for the Reiki sessions I've received from Kristine. I feel completely safe, seen, and cared for. She carries such a soft, warm, calming energy that instantly puts me at ease.<br><br>What I love most is how intentional she is. I bring all my thoughts, emotions, and intentions, and she holds space for all of it so gently. Every session feels deeply personal and healing. It's hard to fully explain, but the next day I always notice a shift within myself — like the heaviness, stress, and worries I was carrying have been released and cleared away. I feel lighter, calmer, more peaceful, and more connected to myself afterward.<br><br>Her kindness, presence, and energy are truly special, and I'm incredibly thankful for the comfort and healing she's brought into my life.</p>
+        <button class="review-more" data-target="reviewRebekah">Read more →</button>
+        <div class="review-author">Rebekah V. &nbsp;·&nbsp; Energy Healing Session</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-open-quote">"</div>
+        <p class="review-quote">Honestly, I was skeptical. I didn't believe in this kind of work. But something shifted in that session that I still can't fully explain.</p>
+        <div class="review-author">James T. &nbsp;·&nbsp; Sound Therapy</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-open-quote">"</div>
+        <p class="review-quote">My dog has been noticeably calmer and more at ease since the Animal Reiki session. I'm amazed at the difference.</p>
+        <div class="review-author">Linda K. &nbsp;·&nbsp; Animal Harmony Session</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REIKI INFO ══ -->
+<section id="reiki-info" class="section">
+  <div style="max-width:var(--max-w);margin:0 auto">
+    <div class="section-header reiki-intro fade-up">
+      <span class="label">Learn About Reiki</span>
+      <h2>What is Reiki?</h2>
+      <p style="margin:16px auto 0">New to energy healing? These short videos explain what Reiki is, how it works, and what to expect — watch them right here, no need to leave the page.</p>
+    </div>
+    <div class="reiki-videos fade-up">
+      <div class="reiki-video-card">
+        <div class="reiki-video-frame" data-yt="JGxWT4EUVbs">
+          <img src="https://i.ytimg.com/vi/JGxWT4EUVbs/hqdefault.jpg" alt="Understanding Reiki energy" loading="lazy">
+          <div class="reiki-video-overlay">
+            <span class="reiki-video-play">
+              <svg width="18" height="20" viewBox="0 0 16 18"><path d="M0 1.3C0 .5.9 0 1.6.4l13 7.7c.7.4.7 1.4 0 1.8l-13 7.7C.9 18 0 17.5 0 16.7V1.3z"></path></svg>
+            </span>
+          </div>
+        </div>
+        <div class="reiki-video-body">
+          <div class="reiki-video-kicker">Video 01</div>
+          <div class="reiki-video-title">Understanding Reiki Energy</div>
+          <a class="reiki-video-link" href="https://www.youtube.com/watch?v=JGxWT4EUVbs" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+        </div>
+      </div>
+      <div class="reiki-video-card">
+        <div class="reiki-video-frame" data-yt="Oatnnvj-k4U">
+          <img src="https://i.ytimg.com/vi/Oatnnvj-k4U/hqdefault.jpg" alt="What to expect from a Reiki session" loading="lazy">
+          <div class="reiki-video-overlay">
+            <span class="reiki-video-play">
+              <svg width="18" height="20" viewBox="0 0 16 18"><path d="M0 1.3C0 .5.9 0 1.6.4l13 7.7c.7.4.7 1.4 0 1.8l-13 7.7C.9 18 0 17.5 0 16.7V1.3z"></path></svg>
+            </span>
+          </div>
+        </div>
+        <div class="reiki-video-body">
+          <div class="reiki-video-kicker">Video 02</div>
+          <div class="reiki-video-title">What to Expect from a Session</div>
+          <a class="reiki-video-link" href="https://www.youtube.com/watch?v=Oatnnvj-k4U" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+        </div>
+      </div>
+      <div class="reiki-video-card">
+        <div class="reiki-video-frame" data-yt="nxEKIqSV91Y">
+          <img src="https://i.ytimg.com/vi/nxEKIqSV91Y/hqdefault.jpg" alt="Reiki and the mind-body connection" loading="lazy">
+          <div class="reiki-video-overlay">
+            <span class="reiki-video-play">
+              <svg width="18" height="20" viewBox="0 0 16 18"><path d="M0 1.3C0 .5.9 0 1.6.4l13 7.7c.7.4.7 1.4 0 1.8l-13 7.7C.9 18 0 17.5 0 16.7V1.3z"></path></svg>
+            </span>
+          </div>
+        </div>
+        <div class="reiki-video-body">
+          <div class="reiki-video-kicker">Video 03</div>
+          <div class="reiki-video-title">Reiki &amp; the Mind–Body Connection</div>
+          <a class="reiki-video-link" href="https://www.youtube.com/watch?v=nxEKIqSV91Y" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-wrap fade-up">
+      <button class="research-toggle" id="research-toggle" aria-expanded="false" aria-controls="research-panel">
+        <span class="research-toggle-icon" aria-hidden="true">+</span>
+        <span class="research-toggle-label">Explore the Research</span>
+      </button>
+      <div class="research-panel" id="research-panel" role="region" aria-label="Reiki research studies">
+        <div class="research-card">
+          <div class="research-card-head">Peer-reviewed studies &amp; reviews</div>
+          <a class="research-item" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11951753/" target="_blank" rel="noopener">
+            <span class="research-num" aria-hidden="true">01</span>
+            <span class="research-item-body">
+              <span class="research-item-title">Effects of Reiki therapy on quality of life: a meta-analysis of randomized controlled trials</span>
+              <span class="research-item-src">PMC · NCBI <span class="arr" aria-hidden="true">↗</span></span>
+            </span>
+          </a>
+          <a class="research-item" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5871310/" target="_blank" rel="noopener">
+            <span class="research-num" aria-hidden="true">02</span>
+            <span class="research-item-body">
+              <span class="research-item-title">Reiki Is Better Than Placebo and Has Broad Potential as a Complementary Health Therapy</span>
+              <span class="research-item-src">PMC · NCBI <span class="arr" aria-hidden="true">↗</span></span>
+            </span>
+          </a>
+          <a class="research-item" href="https://www.uclahealth.org/sites/default/files/documents/Integrative_Review_of_Reiki_Research.pdf" target="_blank" rel="noopener">
+            <span class="research-num" aria-hidden="true">03</span>
+            <span class="research-item-body">
+              <span class="research-item-title">An Integrative Review of Reiki Touch Therapy Research</span>
+              <span class="research-item-src">UCLA Health · PDF <span class="arr" aria-hidden="true">↗</span></span>
+            </span>
+          </a>
+          <a class="research-item" href="https://www.sciencedirect.com/science/article/abs/pii/S1550830720300409" target="_blank" rel="noopener">
+            <span class="research-num" aria-hidden="true">04</span>
+            <span class="research-item-body">
+              <span class="research-item-title">The effect of preoperative Reiki application on patient anxiety levels</span>
+              <span class="research-item-src">ScienceDirect <span class="arr" aria-hidden="true">↗</span></span>
+            </span>
+          </a>
+          <a class="research-item" href="https://www.sciencedirect.com/science/article/abs/pii/S1550830721001464" target="_blank" rel="noopener">
+            <span class="research-num" aria-hidden="true">05</span>
+            <span class="research-item-body">
+              <span class="research-item-title">The effects of Reiki and back massage on women's pain and vital signs post-abdominal hysterectomy: a randomized controlled trial</span>
+              <span class="research-item-src">ScienceDirect <span class="arr" aria-hidden="true">↗</span></span>
+            </span>
+          </a>
+          <a class="research-item" href="https://www.semanticscholar.org/paper/The-Effectiveness-of-Treating-Anxiety-With-Reiki-Humphreys-Cabrera/af22865175263f07f48e8d6dcb5d1d47d0601561" target="_blank" rel="noopener">
+            <span class="research-num" aria-hidden="true">06</span>
+            <span class="research-item-body">
+              <span class="research-item-title">The Effectiveness of Treating Anxiety With Reiki</span>
+              <span class="research-item-src">Semantic Scholar <span class="arr" aria-hidden="true">↗</span></span>
+            </span>
+          </a>
+          <a class="research-item" href="https://www.reiki.org/articles/reiki-scientific-evidence" target="_blank" rel="noopener">
+            <span class="research-num" aria-hidden="true">07</span>
+            <span class="research-item-body">
+              <span class="research-item-title">Reiki, the Scientific Evidence</span>
+              <span class="research-item-src">Reiki.org <span class="arr" aria-hidden="true">↗</span></span>
+            </span>
+          </a>
+        </div>
+        <p class="research-note">Links open in a new tab. Shared for educational purposes — Reiki complements, but does not replace, medical care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section id="faq" class="section">
+  <div class="faq-grid">
+    <aside class="faq-aside fade-up">
+      <span class="label">Common Questions</span>
+      <h2>What you might be<br>wondering</h2>
+      <p>If this is your first time exploring Reiki or sound healing, it's natural to have questions. Here are the ones I hear most often — and if yours isn't here, please reach out.</p>
+      <a class="faq-aside-link" href="#contact">Ask a question →</a>
+    </aside>
+    <div class="faq-list fade-up">
+      <div class="faq-item open">
+        <button class="faq-q" type="button" aria-expanded="true">
+          <span>What actually happens in a Reiki session?</span>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">
+          <p>You stay fully clothed and rest comfortably on a treatment table. I gently place my hands on or just above your body in a series of positions, allowing energy to flow where it's most needed.</p>
+          <p>Most people experience deep relaxation, warmth, or tingling sensations. Some fall asleep, some feel emotions move through. Whatever arises is exactly what's meant to.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span>I'm skeptical. Will it still work?</span>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">
+          <p>Absolutely. You don't need to believe in anything for Reiki to support your nervous system. Skepticism is welcome here — many of my long-term clients started as cautious first-timers.</p>
+          <p>Come as you are. Your body knows what to do.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span>How is distance healing possible?</span>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">
+          <p>Energy is not bound by physical proximity. In a distance session we connect by video or phone, set intentions together, and I send Reiki to you while you sleep in a quiet space at home.</p>
+          <p>Many clients find distance work just as profound as in-person — sometimes more so, because they're already in a familiar, safe environment.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span>How many sessions will I need?</span>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">
+          <p>That depends entirely on you and what you're working with. A single session can be deeply restorative; a series of three to six often supports more sustained shifts.</p>
+          <p>We'll talk about what feels right after your first session — there's never any pressure to commit to more than what you need.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span>Is this a replacement for medical or mental health care?</span>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">
+          <p>No — and it shouldn't be. Reiki and sound healing are complementary practices that work alongside conventional care, not in place of it.</p>
+          <p>With my background in healthcare, I take this seriously. I always encourage clients to maintain their relationships with doctors, therapists, and other providers.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span>Can you work with my pet?</span>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">
+          <p>Yes. Animals are extraordinarily receptive to energy work. I offer sessions for pets dealing with anxiety, recovery from illness or surgery, end-of-life transitions, or simply general wellbeing.</p>
+          <p>Sessions can be in-person or at a distance, and most pets settle quickly into the energy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA STRIP — Intake invitation ══ -->
+<section id="cta-strip">
+  <div class="fade-up">
+    <span class="label">Let's get to know each other</span>
+    <h2>Every healing journey<br><em>begins with a conversation.</em></h2>
+    <p>Share a little about what's been coming up for you. Take your time — there are no right or wrong answers. I'll review your responses and reach back out personally.</p>
+    <button class="btn-strip" type="button" id="open-intake"><span>Fill Out Intake Form</span></button>
+    <p class="strip-reassurance">Takes about 5 minutes &nbsp;·&nbsp; Held in confidence &nbsp;·&nbsp; No commitment required</p>
+  </div>
+</section>
+
+<!-- ══ INTAKE MODAL ══ -->
+<div class="intake-overlay" id="intake-overlay" role="dialog" aria-modal="true" aria-labelledby="intake-title">
+  <div class="intake-modal">
+    <button class="intake-close" id="intake-close" aria-label="Close form">×</button>
+
+    <div class="intake-header">
+      <span class="label">🌿 Intake Form</span>
+      <h2 id="intake-title">Reiki &amp; Support<br>Session Intake</h2>
+      <p>I'm so glad you're here. This space is for you to gently share what's been coming up so I can support you in a way that feels grounded, safe, and aligned.</p>
+    </div>
+
+    <form class="intake-form" id="intake-form" novalidate>
+
+      <!-- Section 1 -->
+      <div class="intake-section">
+        <div class="intake-section-head">
+          <span class="intake-section-num">Section 1</span>
+          <h3 class="intake-section-title">Getting to Know You</h3>
+          <p class="intake-section-desc">Just a little context so I can meet you where you are.</p>
+        </div>
+        <div class="intake-q">
+          <label class="intake-label" for="ik-name">Your name <span class="req">*</span></label>
+          <input class="intake-input" id="ik-name" name="name" type="text" required placeholder="Full name">
+        </div>
+        <div class="intake-q">
+          <label class="intake-label" for="ik-email">Email address <span class="req">*</span></label>
+          <input class="intake-input" id="ik-email" name="email" type="email" required placeholder="your@email.com">
+        </div>
+        <div class="intake-q">
+          <label class="intake-label" for="ik-q1">What's been coming up for you lately? <span class="req">*</span></label>
+          <textarea class="intake-textarea" id="ik-q1" name="q1_recent" required></textarea>
+        </div>
+        <div class="intake-q">
+          <label class="intake-label" for="ik-q2">What is bringing you to this session right now? <span class="req">*</span></label>
+          <textarea class="intake-textarea" id="ik-q2" name="q2_intention" required></textarea>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="intake-section">
+        <div class="intake-section-head">
+          <span class="intake-section-num">Section 2 · 💫</span>
+          <h3 class="intake-section-title">Your Experience</h3>
+        </div>
+        <div class="intake-q">
+          <label class="intake-label" for="ik-q3">What are you hoping to feel or experience after our session? <span class="req">*</span></label>
+          <textarea class="intake-textarea" id="ik-q3" name="q3_hopes" required></textarea>
+        </div>
+        <div class="intake-q">
+          <span class="intake-label">Have you received Reiki, sound healing, or emotional support work before? <span class="req">*</span></span>
+          <div class="intake-options">
+            <label class="intake-option"><input type="radio" name="q4_experience" value="Yes" required> Yes</label>
+            <label class="intake-option"><input type="radio" name="q4_experience" value="No"> No</label>
+            <label class="intake-option"><input type="radio" name="q4_experience" value="A little / unsure"> A little / unsure</label>
+          </div>
+        </div>
+        <div class="intake-q">
+          <span class="intake-label">How would you describe your current state? <span class="req">*</span></span>
+          <span class="intake-hint">Select all that apply</span>
+          <div class="intake-options">
+            <label class="intake-option"><input type="checkbox" name="q5_state" value="Feeling calm / balanced"> Feeling calm / balanced</label>
+            <label class="intake-option"><input type="checkbox" name="q5_state" value="Stressed or overwhelmed"> Stressed or overwhelmed</label>
+            <label class="intake-option"><input type="checkbox" name="q5_state" value="Anxious or on edge"> Anxious or on edge</label>
+            <label class="intake-option"><input type="checkbox" name="q5_state" value="Emotionally heavy"> Emotionally heavy</label>
+            <label class="intake-option"><input type="checkbox" name="q5_state" value="Disconnected / numb"> Disconnected / numb</label>
+            <label class="intake-option"><input type="checkbox" name="q5_state" value="Other"> Other (please describe below)</label>
+          </div>
+          <input class="intake-other-input" type="text" name="q5_other" placeholder="If 'Other', describe here…">
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="intake-section">
+        <div class="intake-section-head">
+          <span class="intake-section-num">Section 3 · 🔮</span>
+          <h3 class="intake-section-title">Awareness &amp; Support</h3>
+          <p class="intake-section-desc">This helps me create a safe and supportive space for you.</p>
+        </div>
+        <div class="intake-q">
+          <span class="intake-label">Are you currently feeling unsafe, in crisis, or needing urgent support? <span class="req">*</span></span>
+          <div class="intake-options">
+            <label class="intake-option"><input type="radio" name="q6_crisis" value="Yes" required> Yes</label>
+            <label class="intake-option"><input type="radio" name="q6_crisis" value="No"> No</label>
+          </div>
+        </div>
+        <div class="intake-q">
+          <label class="intake-label" for="ik-q7">Is there anything you believe may be affecting you energetically or spiritually that you'd like me to be aware of? <span class="req">*</span></label>
+          <textarea class="intake-textarea" id="ik-q7" name="q7_energetic" required></textarea>
+        </div>
+        <div class="intake-q">
+          <label class="intake-label" for="ik-q8">Is there anything you'd like me to be mindful of during our session?</label>
+          <span class="intake-hint">Triggers, sensitivities, preferences, etc.</span>
+          <textarea class="intake-textarea" id="ik-q8" name="q8_mindful"></textarea>
+        </div>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="intake-section">
+        <div class="intake-section-head">
+          <span class="intake-section-num">Section 4 · 📅</span>
+          <h3 class="intake-section-title">Booking Details</h3>
+        </div>
+        <div class="intake-q">
+          <span class="intake-label">Preferred session type <span class="req">*</span></span>
+          <div class="intake-options">
+            <label class="intake-option"><input type="radio" name="q9_type" value="In-person" required> In-person</label>
+            <label class="intake-option"><input type="radio" name="q9_type" value="Distance"> Distance</label>
+          </div>
+        </div>
+        <div class="intake-q">
+          <label class="intake-label" for="ik-q10">What days/times typically work best for you? <span class="req">*</span></label>
+          <textarea class="intake-textarea" id="ik-q10" name="q10_availability" required placeholder="e.g. Weekday evenings, Saturday mornings…"></textarea>
+        </div>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="intake-section">
+        <div class="intake-section-head">
+          <span class="intake-section-num">Section 5 · 🌿</span>
+          <h3 class="intake-section-title">Agreement &amp; Policies</h3>
+        </div>
+        <div class="intake-policy">
+          I offer Reiki and supportive sessions focused on relaxation, nervous system regulation, and emotional grounding. <strong>I do not diagnose, treat medical conditions, or engage with fear-based or entity-related concerns.</strong>
+        </div>
+        <div class="intake-q">
+          <div class="intake-options">
+            <label class="intake-option"><input type="checkbox" name="agree_scope" value="Yes" required> I understand and agree to the scope of services <span class="req" style="margin-left:4px">*</span></label>
+          </div>
+        </div>
+        <div class="intake-policy">
+          A <strong>50% deposit</strong> is required to secure your session. Cancellations made <strong>24 hours in advance</strong> may transfer the deposit to a future session. Cancellations within 24 hours are non-refundable and non-transferable.
+        </div>
+        <div class="intake-q">
+          <div class="intake-options">
+            <label class="intake-option"><input type="checkbox" name="agree_policy" value="Yes" required> I understand and agree to the booking policy <span class="req" style="margin-left:4px">*</span></label>
+          </div>
+        </div>
+        <div class="intake-policy">
+          By submitting this form you consent to the collection and use of your information as described in our policies, and acknowledge that these services are supportive and educational in nature — not medical, psychological, or emergency care.
+        </div>
+        <div class="intake-q">
+          <div class="intake-options">
+            <div class="intake-option"><input type="checkbox" id="ik-agree-terms" name="agree_terms" value="Yes" required> <span><label for="ik-agree-terms" style="cursor:pointer">I have read and agree to the</label> <a href="Legal.html#privacy" style="color:var(--sage-deep);text-decoration:underline">Privacy Policy</a>, <a href="Legal.html#terms" style="color:var(--sage-deep);text-decoration:underline">Terms &amp; Conditions</a>, and <a href="Legal.html#confidentiality" style="color:var(--sage-deep);text-decoration:underline">Confidentiality Notice</a> <span class="req" style="margin-left:4px">*</span></span></div>
+          </div>
+        </div>
+        <div class="intake-q">
+          <div class="intake-options">
+            <label class="intake-option"><input type="checkbox" name="marketing_consent" value="Yes"> I consent to receiving promotional emails, updates, and special offers (optional — unsubscribe anytime)</label>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="intake-submit" id="intake-submit">Submit Intake Form</button>
+    </form>
+
+    <div class="intake-success" id="intake-success">
+      <div class="intake-success-icon">✦</div>
+      <h3>You're all set 🤍</h3>
+      <p>Thank you for sharing. I'll review your responses and reach out soon with next steps and available times if we're a good fit.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact" class="section">
+  <div class="contact-grid">
+    <div>
+      <div class="section-header fade-up">
+        <span class="label">Get in Touch</span>
+        <h2>Let's find your<br>path to healing</h2>
+      </div>
+      <form class="contact-form fade-up" id="contact-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="f-name">Your name</label>
+          <input class="form-input" id="f-name" name="name" type="text" placeholder="Your full name">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-email">Email address <span style="color:var(--sage)">*</span></label>
+          <input class="form-input" id="f-email" name="email" type="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-phone">Phone number</label>
+          <input class="form-input" id="f-phone" name="phone" type="tel" placeholder="(000) 000-0000">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="f-message">What brings you here?</label>
+          <textarea class="form-textarea" id="f-message" name="message" placeholder="Share a little about what you're experiencing or what kind of support you're looking for…"></textarea>
+        </div>
+        <div class="form-consent">
+          <input type="checkbox" id="f-agree" name="agree_terms" value="Yes" required>
+          <span class="consent-text"><label for="f-agree">I have read and agree to the</label> <a href="Legal.html#privacy">Privacy Policy</a>, <a href="Legal.html#terms">Terms &amp; Conditions</a>, and <a href="Legal.html#confidentiality">Confidentiality Notice</a>. <span class="req">*</span></span>
+        </div>
+        <div class="form-consent">
+          <input type="checkbox" id="f-marketing" name="marketing_consent" value="Yes">
+          <span class="consent-text"><label for="f-marketing">I consent to receiving promotional emails, updates, and special offers from Sacred Sound &amp; Spirit. I understand I can unsubscribe at any time. (optional)</label></span>
+        </div>
+        <button class="btn-form" type="submit">Send Message</button>
+        <p class="form-note">I personally read and respond to every message.</p>
+      </form>
+    </div>
+    <div class="contact-info fade-up">
+      <div class="contact-detail">
+        <div class="contact-detail-label">Phone</div>
+        <div class="contact-detail-value"><a href="tel:+15628184142">(562) 818-4142</a></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Email</div>
+        <div class="contact-detail-value"><a href="mailto:SoundNSpirit888@gmail.com">SoundNSpirit888@gmail.com</a></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Studio</div>
+        <div class="contact-detail-value">
+          Inside Lux Salon Suites<br>
+          31562 Railroad Canyon Rd. #42<br>
+          Canyon Lake, CA 92587
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Hours</div>
+        <div class="contact-detail-value">
+          Monday – Friday: 9:30 am – 7:00 pm<br>
+          By appointment only
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-distance">Distance sessions available worldwide</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Connect</div>
+        <div class="contact-socials">
+          <a class="contact-social" href="https://www.instagram.com/sacredsoundnspirit" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.36 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.8.72 1.47 1.38 2.13.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.85 5.85 0 0 0 2.13-1.38c.66-.66 1.08-1.33 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.85 5.85 0 0 0-1.38-2.12A5.85 5.85 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.41a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"></path></svg>
+            <span>Instagram</span>
+          </a>
+          <a class="contact-social" href="https://www.tiktok.com/@lill8dee" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.89-4.5c.3 0 .59.04.87.12V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"></path></svg>
+            <span>TikTok</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-quote-card">
+        <p>"Your body and spirit already know how to heal. I'm simply here to hold space for that process."</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer id="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><img src="assets/logo-mortar.png" alt="Sacred Sound &amp; Spirit"><span class="nav-wordmark">Sacred Sound <em>&amp;</em> Spirit</span></div>
+      <p class="footer-tagline">Sound healing works where<br>words cannot reach.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="#about">About</a>
+      <span class="sep" aria-hidden="true">•</span>
+      <a href="#offerings">Offerings</a>
+      <span class="sep" aria-hidden="true">•</span>
+      <a href="#why">Why Me</a>
+      <span class="sep" aria-hidden="true">•</span>
+      <a href="#reviews">Reviews</a>
+      <span class="sep" aria-hidden="true">•</span>
+      <a href="#contact">Contact</a>
+      <span class="sep" aria-hidden="true">•</span>
+      <a href="Legal.html#privacy">Privacy</a>
+      <span class="sep" aria-hidden="true">•</span>
+      <a href="Legal.html#terms">Terms</a>
+      <span class="sep" aria-hidden="true">•</span>
+      <a href="tel:+15628184142">(562) 818-4142</a>
+    </nav>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Sacred Sound &amp; Spirit, LLC. · <a href="Legal.html" style="color:inherit;border-bottom:1px solid rgba(245,242,236,0.2)">Legal &amp; Policies</a></span>
+    <span class="footer-services">Reiki &nbsp;•&nbsp; Sound Healing &nbsp;•&nbsp; Energy Cleansing</span>
+  </div>
+</footer>
+
+<script>
+// ── Intake modal: open / close + Formspree submit
+// ── Formspree endpoint (configured). Submissions are emailed to the form owner.
+//    Manage / change recipient at https://formspree.io (form: xaqznnyj)
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xaqznnyj';
+const FALLBACK_EMAIL = 'SoundNSpirit888@gmail.com';
+
+const intakeOverlay = document.getElementById('intake-overlay');
+const intakeForm = document.getElementById('intake-form');
+const openIntakeBtn = document.getElementById('open-intake');
+const closeIntakeBtn = document.getElementById('intake-close');
+
+function openIntake() {
+  intakeOverlay.classList.add('open');
+  document.body.classList.add('intake-open');
+}
+function closeIntake() {
+  intakeOverlay.classList.remove('open');
+  document.body.classList.remove('intake-open');
+}
+if (openIntakeBtn) openIntakeBtn.addEventListener('click', openIntake);
+if (closeIntakeBtn) closeIntakeBtn.addEventListener('click', closeIntake);
+intakeOverlay.addEventListener('click', (e) => {
+  if (e.target === intakeOverlay) closeIntake();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && intakeOverlay.classList.contains('open')) closeIntake();
+});
+// Nav "Free Consultation" CTA also opens the form
+document.querySelectorAll('a[href="#cta-strip"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    // let scroll happen, then open after a moment
+    setTimeout(openIntake, 600);
+  });
+});
+
+if (intakeForm) {
+  intakeForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!intakeForm.checkValidity()) {
+      intakeForm.reportValidity();
+      return;
+    }
+    const fd = new FormData(intakeForm);
+    const labels = {
+      name: 'Name', email: 'Email',
+      q1_recent: "What's been coming up lately",
+      q2_intention: 'What brings you to this session',
+      q3_hopes: 'What you hope to feel after',
+      q4_experience: 'Prior experience with Reiki/sound/support',
+      q5_state: 'Current state',
+      q5_other: 'Other (state)',
+      q6_crisis: 'Currently in crisis / unsafe',
+      q7_energetic: 'Energetic / spiritual concerns',
+      q8_mindful: 'Things to be mindful of',
+      q9_type: 'Preferred session type',
+      q10_availability: 'Availability',
+      agree_scope: 'Agrees to scope of services',
+      agree_policy: 'Agrees to booking policy',
+      agree_terms: 'Agrees to Privacy Policy / Terms / Confidentiality',
+      marketing_consent: 'Marketing & promotional consent',
+    };
+    const data = {};
+    for (const [k, v] of fd.entries()) {
+      if (data[k]) data[k] = [].concat(data[k], v);
+      else data[k] = v;
+    }
+    // Flat object for Formspree with friendly field labels
+    const payload = { _subject: 'New Reiki Intake — ' + (data.name || 'Sacred Sound & Spirit') };
+    Object.keys(labels).forEach(key => {
+      const val = data[key];
+      if (val == null || val === '') return;
+      payload[labels[key]] = Array.isArray(val) ? val.join(', ') : String(val);
+    });
+    const submitBtn = document.getElementById('intake-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error('Formspree error ' + res.status);
+      intakeForm.style.display = 'none';
+      document.getElementById('intake-success').classList.add('visible');
+    } catch (err) {
+      console.error(err);
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Intake Form';
+      // Fallback: open user's email client
+      const bodyText = Object.entries(payload)
+        .filter(([k]) => k !== '_subject')
+        .map(([k, v]) => k + ':\n' + v).join('\n\n');
+      window.location.href = 'mailto:' + FALLBACK_EMAIL
+        + '?subject=' + encodeURIComponent(payload._subject)
+        + '&body=' + encodeURIComponent(bodyText);
+    }
+  });
+}
+
+// ── Contact form: Formspree submit
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+    const fd = new FormData(contactForm);
+    const data = {};
+    for (const [k, v] of fd.entries()) data[k] = v;
+    const payload = {
+      _subject: 'New Inquiry — ' + (data.name || 'Sacred Sound & Spirit'),
+      Name: data.name || '',
+      Email: data.email || '',
+      Phone: data.phone || '',
+      Message: data.message || '',
+      'Agrees to Privacy Policy / Terms / Confidentiality': data.agree_terms || 'No',
+      'Marketing & promotional consent': data.marketing_consent || 'No',
+    };
+    const btn = contactForm.querySelector('.btn-form');
+    const note = contactForm.querySelector('.form-note');
+    const originalNote = note ? note.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error('Formspree error ' + res.status);
+      contactForm.reset();
+      if (btn) { btn.disabled = false; btn.textContent = 'Message Sent ✓'; }
+      if (note) { note.textContent = 'Thank you — your message is on its way. I personally read every one.'; note.style.color = 'var(--sage-deep)'; }
+      setTimeout(() => {
+        if (btn) btn.textContent = 'Send Message';
+        if (note) { note.textContent = originalNote; note.style.color = ''; }
+      }, 6000);
+    } catch (err) {
+      console.error(err);
+      if (btn) { btn.disabled = false; btn.textContent = 'Send Message'; }
+      // Fallback: open user's email client
+      const bodyText = Object.entries(payload)
+        .filter(([k]) => k !== '_subject')
+        .map(([k, v]) => k + ':\n' + v).join('\n\n');
+      window.location.href = 'mailto:' + FALLBACK_EMAIL
+        + '?subject=' + encodeURIComponent(payload._subject)
+        + '&body=' + encodeURIComponent(bodyText);
+    }
+  });
+}
+
+// ── Smooth scroll only for anchor links (not global, avoids sluggish wheel)
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 68;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+// ── Nav scroll shadow
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
+}, { passive: true });
+
+// ── Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', open);
+  const spans = hamburger.querySelectorAll('span');
+  if (open) {
+    spans[0].style.cssText = 'transform:translateY(6.5px) rotate(45deg)';
+    spans[1].style.cssText = 'opacity:0';
+    spans[2].style.cssText = 'transform:translateY(-6.5px) rotate(-45deg)';
+  } else {
+    spans.forEach(s => s.style.cssText = '');
+  }
+});
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+    hamburger.querySelectorAll('span').forEach(s => s.style.cssText = '');
+  });
+});
+
+// ── Fade-up on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+// ── FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close siblings for cleaner reading
+    item.parentElement.querySelectorAll('.faq-item.open').forEach(o => {
+      if (o !== item) {
+        o.classList.remove('open');
+        o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      }
+    });
+    item.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+});
+
+document.querySelectorAll('.fade-up').forEach((el, i) => {
+  el.style.transitionDelay = (i % 3) * 80 + 'ms';
+  observer.observe(el);
+});
+
+// ── Audio testimonial player
+(function () {
+  const audio = document.getElementById('audioEl');
+  if (!audio) return;
+  const btn = document.getElementById('audioPlayBtn');
+  const track = document.getElementById('audioTrack');
+  const fill = document.getElementById('audioFill');
+  const curEl = document.getElementById('audioCurrent');
+  const durEl = document.getElementById('audioDuration');
+  const playPath = 'M0 1.3C0 .5.9 0 1.6.4l13 7.7c.7.4.7 1.4 0 1.8l-13 7.7C.9 18 0 17.5 0 16.7V1.3z';
+  const pausePath = 'M1 1h4v16H1zM11 1h4v16h-4z';
+  const icon = btn.querySelector('.audio-play-icon');
+
+  function fmt(s) {
+    if (!isFinite(s)) return '0:00';
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+  function setDur() { durEl.textContent = fmt(audio.duration); }
+  if (audio.readyState >= 1) setDur();
+  audio.addEventListener('loadedmetadata', setDur);
+
+  btn.addEventListener('click', () => {
+    if (audio.paused) audio.play(); else audio.pause();
+  });
+  audio.addEventListener('play', () => {
+    icon.setAttribute('d', pausePath);
+    btn.setAttribute('aria-label', 'Pause audio testimonial');
+  });
+  audio.addEventListener('pause', () => {
+    icon.setAttribute('d', playPath);
+    btn.setAttribute('aria-label', 'Play audio testimonial');
+  });
+  audio.addEventListener('timeupdate', () => {
+    const p = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+    fill.style.width = p + '%';
+    curEl.textContent = fmt(audio.currentTime);
+  });
+  audio.addEventListener('ended', () => {
+    fill.style.width = '0%';
+    curEl.textContent = '0:00';
+  });
+  track.addEventListener('click', (e) => {
+    const r = track.getBoundingClientRect();
+    const ratio = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+    if (audio.duration) audio.currentTime = ratio * audio.duration;
+  });
+})();
+
+// ── Review "read more" toggles
+document.querySelectorAll('.review-more').forEach(btn => {
+  const target = document.getElementById(btn.dataset.target);
+  if (!target) return;
+  btn.addEventListener('click', () => {
+    const clamped = target.classList.toggle('clamped');
+    btn.textContent = clamped ? 'Read more →' : 'Show less ↑';
+  });
+});
+
+// ── About intro video
+(function () {
+  const frame = document.getElementById('aboutVideoFrame');
+  const video = document.getElementById('aboutVideo');
+  if (!frame || !video) return;
+  frame.addEventListener('click', () => {
+    if (video.paused) { video.play(); video.setAttribute('controls', ''); }
+    else { video.pause(); }
+  });
+  video.addEventListener('play', () => frame.classList.add('playing'));
+  video.addEventListener('pause', () => frame.classList.remove('playing'));
+  video.addEventListener('ended', () => {
+    frame.classList.remove('playing');
+    video.removeAttribute('controls');
+  });
+})();
+
+// ── Reiki research disclosure toggle
+(function () {
+  const btn = document.getElementById('research-toggle');
+  const panel = document.getElementById('research-panel');
+  const label = btn ? btn.querySelector('.research-toggle-label') : null;
+  if (btn && panel) {
+    btn.addEventListener('click', () => {
+      const open = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+      if (label) label.textContent = open ? 'Hide the Research' : 'Explore the Research';
+    });
+  }
+})();
+
+// ── Reiki info videos (click-to-play YouTube facade)
+document.querySelectorAll('.reiki-video-frame[data-yt]').forEach(frame => {
+  frame.addEventListener('click', () => {
+    if (frame.querySelector('iframe')) return;
+    const id = frame.dataset.yt;
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    iframe.title = 'Reiki video';
+    frame.appendChild(iframe);
+    const ov = frame.querySelector('.reiki-video-overlay');
+    const img = frame.querySelector('img');
+    if (ov) ov.remove();
+    if (img) img.remove();
+    frame.style.cursor = 'default';
+  });
+});
+</script>
+<script src="image-slot.js"></script>
+</body>
+</html>
