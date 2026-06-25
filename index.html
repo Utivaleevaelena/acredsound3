@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sacred Sound & Spirit — Healing with Reiki and Sound</title>
+<title>Sacred Sound & Spirit — Healing with Prayer, and Sound</title>
 <template id="__bundler_thumbnail" data-bg-color="#F5F2EC">
   <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
     <rect width="120" height="80" fill="#F5F2EC"/>
@@ -233,6 +233,21 @@ button { cursor:pointer; font-family:inherit; }
   transition:color 200ms var(--ease), border-color 200ms var(--ease);
 }
 .about-link:hover { color:var(--charcoal); border-color:var(--charcoal); }
+.about-more { display:grid; grid-template-rows:0fr; transition:grid-template-rows 480ms var(--ease); }
+.about-more > div { overflow:hidden; }
+.about-text.is-open .about-more { grid-template-rows:1fr; }
+.about-more-inner { padding-top:20px; }
+.about-toggle {
+  display:inline-flex; align-items:center; gap:8px; margin-top:24px;
+  background:none; border:none; cursor:pointer; padding:0;
+  font-family:var(--font-body); font-size:13px; font-weight:500;
+  letter-spacing:0.06em; text-transform:uppercase; color:var(--sage-deep);
+  border-bottom:1px solid var(--sage-light); padding-bottom:2px;
+  transition:color 200ms var(--ease), border-color 200ms var(--ease);
+}
+.about-toggle:hover { color:var(--charcoal); border-color:var(--charcoal); }
+.about-toggle .about-toggle-icon { transition:transform 320ms var(--ease); font-size:11px; }
+.about-text.is-open .about-toggle .about-toggle-icon { transform:rotate(180deg); }
 .about-quote {
   border-left:2px solid var(--sage); padding-left:24px; margin-bottom:28px;
 }
@@ -1165,6 +1180,190 @@ body.intake-open { overflow:hidden; }
   .intake-overlay { padding:0; }
 }
 
+/* ── ENERGY ALIGNMENT QUIZ ──────────────────── */
+.eaq-overlay {
+  display:none; position:fixed; inset:0; z-index:320;
+  background:rgba(20,16,10,0.6); backdrop-filter:blur(7px);
+  align-items:center; justify-content:center;
+  padding:40px 20px; overflow-y:auto;
+}
+.eaq-overlay.open { display:flex; animation:fadeIn 280ms var(--ease); }
+.eaq-modal {
+  position:relative; background:var(--cream);
+  border-radius:22px; max-width:600px; width:100%;
+  padding:46px 48px 40px;
+  box-shadow:0 30px 90px rgba(20,16,10,0.4);
+  animation:slideUp 380ms var(--ease);
+  overflow:hidden;
+}
+.eaq-modal::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:4px;
+  background:linear-gradient(90deg, var(--sage-light), var(--sage), var(--sage-deep));
+}
+.eaq-close {
+  position:absolute; top:18px; right:18px; z-index:5;
+  width:36px; height:36px; border-radius:50%; border:none;
+  background:rgba(175,169,140,0.16); color:var(--charcoal);
+  font-size:20px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:background 200ms var(--ease), transform 200ms var(--ease);
+}
+.eaq-close:hover { background:var(--parchment); transform:rotate(90deg); }
+.eaq-screen { display:none; animation:eaqFade 420ms var(--ease); }
+.eaq-screen.active { display:block; }
+@keyframes eaqFade { from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:translateY(0)} }
+
+/* Lead capture */
+.eaq-orn {
+  width:54px; height:54px; margin:0 auto 18px; border-radius:50%;
+  background:var(--parchment); display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-size:24px; color:var(--sage-deep);
+}
+.eaq-lead-head { text-align:center; margin-bottom:26px; }
+.eaq-lead-head .label { display:block; margin-bottom:14px; }
+.eaq-lead-head h2 {
+  font-family:var(--font-display); font-size:clamp(26px,3.4vw,34px); font-weight:400;
+  line-height:1.15; letter-spacing:-0.01em; color:var(--charcoal); margin-bottom:14px;
+}
+.eaq-lead-head p {
+  font-family:var(--font-body); font-size:14px; font-weight:300;
+  line-height:1.7; color:var(--charcoal-light); max-width:440px; margin:0 auto 8px;
+}
+.eaq-form { display:flex; flex-direction:column; gap:14px; }
+.eaq-field { display:flex; flex-direction:column; gap:6px; }
+.eaq-field label {
+  font-family:var(--font-body); font-size:12.5px; font-weight:500;
+  color:var(--charcoal); letter-spacing:0.01em;
+}
+.eaq-field label .req { color:var(--sage-deep); margin-left:3px; }
+.eaq-input {
+  background:var(--white); border:1px solid var(--sage-light);
+  border-radius:9px; padding:12px 14px;
+  font-family:var(--font-body); font-size:14.5px; font-weight:300;
+  color:var(--charcoal); outline:none; width:100%;
+  transition:border-color 250ms var(--ease), box-shadow 250ms var(--ease);
+}
+.eaq-input::placeholder { color:var(--charcoal-light); opacity:0.5; }
+.eaq-input:focus { border-color:var(--sage); box-shadow:0 0 0 3px rgba(175,169,140,0.15); }
+.eaq-consent {
+  display:flex; align-items:flex-start; gap:10px; margin-top:4px;
+  font-family:var(--font-body); font-size:11.5px; font-weight:300;
+  line-height:1.6; color:var(--charcoal-light);
+}
+.eaq-consent input { margin-top:2px; accent-color:var(--charcoal); cursor:pointer; flex-shrink:0; }
+.eaq-submit {
+  background:var(--charcoal); color:var(--cream); border:none;
+  font-family:var(--font-body); font-size:13px; font-weight:500;
+  letter-spacing:0.04em; padding:15px 24px; border-radius:10px;
+  cursor:pointer; transition:background 200ms var(--ease), transform 120ms var(--ease);
+  margin-top:8px;
+}
+.eaq-submit:hover { background:var(--sage-deep); }
+.eaq-submit:active { transform:scale(0.98); }
+.eaq-submit:disabled { opacity:0.5; cursor:wait; }
+.eaq-fineprint {
+  text-align:center; font-family:var(--font-body); font-size:11px;
+  font-weight:300; color:var(--charcoal-light); opacity:0.7; margin-top:2px;
+}
+
+/* Quiz progress + question */
+.eaq-progress { margin-bottom:30px; }
+.eaq-progress-meta {
+  display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;
+  font-family:var(--font-body); font-size:11px; font-weight:500;
+  letter-spacing:0.18em; text-transform:uppercase; color:var(--sage-deep);
+}
+.eaq-progress-track { height:4px; background:var(--sage-light); border-radius:4px; overflow:hidden; }
+.eaq-progress-fill {
+  height:100%; width:0%; border-radius:4px;
+  background:linear-gradient(90deg, var(--sage), var(--sage-deep));
+  transition:width 520ms var(--ease);
+}
+.eaq-question {
+  font-family:var(--font-display); font-size:clamp(22px,3vw,27px); font-weight:400;
+  line-height:1.25; letter-spacing:-0.01em; color:var(--charcoal);
+  margin-bottom:24px; text-wrap:pretty;
+}
+.eaq-options { display:flex; flex-direction:column; gap:11px; }
+.eaq-option {
+  display:flex; align-items:center; gap:14px; text-align:left;
+  background:var(--white); border:1px solid var(--sage-light); border-radius:12px;
+  padding:15px 18px; cursor:pointer; width:100%;
+  font-family:var(--font-body); font-size:15px; font-weight:300; color:var(--charcoal);
+  transition:border-color 200ms var(--ease), background 200ms var(--ease), transform 120ms var(--ease), box-shadow 200ms var(--ease);
+}
+.eaq-option:hover { border-color:var(--sage); transform:translateX(3px); }
+.eaq-option.selected {
+  border-color:var(--charcoal); background:var(--parchment);
+  box-shadow:0 0 0 1px var(--charcoal);
+}
+.eaq-option-key {
+  flex-shrink:0; width:30px; height:30px; border-radius:50%;
+  border:1px solid var(--sage); display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-size:14px; color:var(--sage-deep);
+  transition:background 200ms var(--ease), color 200ms var(--ease), border-color 200ms var(--ease);
+}
+.eaq-option:hover .eaq-option-key { border-color:var(--sage-deep); }
+.eaq-option.selected .eaq-option-key { background:var(--charcoal); color:var(--cream); border-color:var(--charcoal); }
+.eaq-nav { display:flex; justify-content:flex-start; margin-top:24px; }
+.eaq-back {
+  background:none; border:none; cursor:pointer; padding:6px 0;
+  font-family:var(--font-body); font-size:12px; font-weight:500;
+  letter-spacing:0.06em; text-transform:uppercase; color:var(--sage-deep);
+  display:inline-flex; align-items:center; gap:7px;
+  transition:color 200ms var(--ease); opacity:1;
+}
+.eaq-back:hover { color:var(--charcoal); }
+.eaq-back[hidden] { display:none; }
+
+/* Results */
+.eaq-result { text-align:center; }
+.eaq-result .label { display:block; margin-bottom:14px; }
+.eaq-result-score {
+  font-family:var(--font-display); font-size:15px; color:var(--sage-deep);
+  letter-spacing:0.04em; margin-bottom:6px;
+}
+.eaq-result-score b { font-size:21px; color:var(--charcoal); font-weight:400; }
+.eaq-result h2 {
+  font-family:var(--font-display); font-size:clamp(27px,3.6vw,38px); font-weight:400;
+  line-height:1.12; letter-spacing:-0.01em; color:var(--charcoal); margin-bottom:16px;
+}
+.eaq-result-desc {
+  font-family:var(--font-body); font-size:15px; font-weight:300; line-height:1.75;
+  color:var(--charcoal-light); max-width:460px; margin:0 auto 28px;
+}
+.eaq-prayer {
+  background:var(--parchment); border-radius:14px; border-left:2px solid var(--sage);
+  padding:26px 28px; text-align:left; margin-bottom:26px;
+}
+.eaq-prayer h3 {
+  font-family:var(--font-display); font-size:19px; font-weight:400; color:var(--charcoal);
+  text-align:center; margin-bottom:16px; letter-spacing:0.01em;
+}
+.eaq-prayer p {
+  font-family:var(--font-display); font-style:italic; font-size:15px; font-weight:400;
+  line-height:1.8; color:var(--charcoal-light); text-align:center; margin:0;
+}
+.eaq-prayer p .amen { display:block; margin-top:12px; font-style:normal; color:var(--sage-deep); letter-spacing:0.04em; }
+.eaq-cta-note {
+  font-family:var(--font-body); font-size:14px; font-weight:300; line-height:1.7;
+  color:var(--charcoal); max-width:460px; margin:0 auto 20px;
+}
+.eaq-cta {
+  display:inline-block; background:var(--charcoal); color:var(--cream);
+  font-family:var(--font-body); font-size:13px; font-weight:500; letter-spacing:0.04em;
+  padding:15px 34px; border-radius:10px; cursor:pointer; border:none;
+  transition:background 200ms var(--ease), transform 120ms var(--ease);
+}
+.eaq-cta:hover { background:var(--sage-deep); }
+.eaq-cta:active { transform:scale(0.98); }
+body.eaq-open { overflow:hidden; }
+@media (max-width:600px) {
+  .eaq-modal { padding:40px 24px 30px; border-radius:16px; }
+  .eaq-overlay { padding:0; }
+  .eaq-prayer { padding:22px 20px; }
+}
+
 /* ── CTA STRIP ─────────────────────────────── */
 #cta-strip {
   position:relative; isolation:isolate;
@@ -1488,7 +1687,7 @@ body.intake-open { overflow:hidden; }
 <section id="hero">
   <div class="hero-content fade-up">
     <div class="hero-eyebrow label">Sacred Sound &amp; Spirit</div>
-    <h1 class="hero-h1">Healing with<br>Reiki<br><em>and Sound</em></h1>
+    <h1 class="hero-h1">Healing with<br>Prayer,<br><em>and Sound</em></h1>
     <p class="hero-sub">Rediscover the calm, clarity, and wholeness that already lives within you. Personalized energy healing rooted in compassion, sound, and sacred intention.</p>
     <div class="hero-actions">
       <a class="btn-primary" href="#contact">Book Free Consultation</a>
@@ -1551,6 +1750,7 @@ body.intake-open { overflow:hidden; }
 <div id="trust" role="complementary" aria-label="Trust indicators">
   <div class="trust-inner">
     <div class="trust-item">Certified Reiki Master</div>
+    <div class="trust-item">Intuitive Healer</div>
     <div class="trust-item">Healthcare Professional Background</div>
     <div class="trust-item">Distance &amp; In-Person Sessions</div>
     <div class="trust-item">Human &amp; Animal Healing</div>
@@ -1567,9 +1767,14 @@ body.intake-open { overflow:hidden; }
         <h2>I know what it feels like<br>to be out of alignment</h2>
       </div>
       <div class="about-text fade-up">
-        <p>After years in healthcare risk management, I understood stress, loss, and burnout from the inside. I saw firsthand how the pace of everyday life can quietly disconnect us from our own inner calm.</p>
-        <p>My path shifted through plant medicine and self-discovery, which led me to the profound practice of Reiki. Through my own healing journey, I discovered that when we care for our energy and emotions, everything else begins to shift — our health, our relationships, our sense of purpose.</p>
-        <p>Every session I offer is rooted in compassion, reverence, and deep respect for the mind–body–spirit connection. I'm here to hold space for your process — using Reiki, sound therapy, and mindful coaching to help you release tension, find clarity, and reconnect to the steady, peaceful core that's always been within you.</p>
+        <p>After years in healthcare risk management, I understood stress, loss, and burnout from the inside. I saw firsthand how the pace of everyday life can quietly disconnect us from our own inner wisdom, peace, and sense of self.</p>
+        <p>My healing journey began with Reiki, but over time it evolved into something much deeper. As I've grown into my gifts and continued my training, I've learned to weave together multiple healing traditions and practices. One of the most meaningful gifts I carry is the wisdom passed down through my grandmother, including traditional egg energy cleansing practices used to support energetic clearing and spiritual renewal.</p>
+        <p>My work is also influenced by earth-based healing traditions, honoring the natural tools and elements that have been used for generations to support healing, reflection, and connection. Whether through Reiki, sound healing, energy clearing, or intuitive guidance, I approach each session with deep respect for both the sacred and the practical.</p>
+        <div class="about-more" id="aboutMore"><div><div class="about-more-inner">
+        <p>At the heart of everything I do is my faith. Before every session, I pray and ask God to guide me, use me as a channel for healing, and show me what is needed for the highest good of the person in front of me. I believe true healing comes not from me, but through me.</p>
+        <p>Every session is rooted in compassion, reverence, and respect for the mind–body–spirit connection. My role is simply to hold space for your journey, helping you release what no longer serves you, reconnect with your inner wisdom, and remember the peace, strength, and wholeness that have always been within you.</p>
+        </div></div></div>
+        <div><button type="button" class="about-toggle" id="aboutToggle" aria-expanded="false" aria-controls="aboutMore"><span class="about-toggle-label">Read more</span><span class="about-toggle-icon" aria-hidden="true">▾</span></button></div>
         <a class="about-link" href="#contact">Let's connect →</a>
       </div>
     </div>
@@ -1661,7 +1866,7 @@ body.intake-open { overflow:hidden; }
           <div class="offering-price">from $155</div>
           <div class="offering-fine">Includes 1 free integration call</div>
         </div>
-        <a class="btn-offering" href="https://site-aqntofg8e.godaddysites.com/#" target="_blank" rel="noopener">Book This Session</a>
+        <a class="btn-offering" href="#contact">Book This Session</a>
       </div>
     </div>
 
@@ -1681,7 +1886,7 @@ body.intake-open { overflow:hidden; }
           <div class="offering-price">$66</div>
           <div class="offering-fine">Includes 1 free integration call</div>
         </div>
-        <a class="btn-offering-outline" href="https://site-aqntofg8e.godaddysites.com/#" target="_blank" rel="noopener">Book This Session</a>
+        <a class="btn-offering-outline" href="#contact">Book This Session</a>
       </div>
     </div>
 
@@ -1702,7 +1907,7 @@ body.intake-open { overflow:hidden; }
           <div class="offering-price">$44 – $66</div>
           <div class="offering-fine">Free with any energy or sound session</div>
         </div>
-        <a class="btn-offering-outline" href="https://site-aqntofg8e.godaddysites.com/#" target="_blank" rel="noopener">Book This Session</a>
+        <a class="btn-offering-outline" href="#contact">Book This Session</a>
       </div>
     </div>
 
@@ -2331,6 +2536,90 @@ body.intake-open { overflow:hidden; }
   </div>
 </div>
 
+<!-- ══ ENERGY ALIGNMENT QUIZ ══ -->
+<div class="eaq-overlay" id="eaq-overlay" role="dialog" aria-modal="true" aria-labelledby="eaq-lead-title">
+  <div class="eaq-modal">
+    <button class="eaq-close" id="eaq-close" aria-label="Close assessment">×</button>
+
+    <!-- Screen: Lead capture -->
+    <div class="eaq-screen active" id="eaq-screen-lead">
+      <div class="eaq-orn" aria-hidden="true">✦</div>
+      <div class="eaq-lead-head">
+        <span class="label">Complimentary 2-Minute Assessment</span>
+        <h2 id="eaq-lead-title">Discover Your<br>Energy Alignment</h2>
+        <p>Take this complimentary 2-minute assessment to discover where your mind, body, and spirit are today.</p>
+        <p>Complete the assessment and receive personalized insight into your current level of energetic alignment.</p>
+      </div>
+      <form class="eaq-form" id="eaq-lead-form" novalidate>
+        <div class="eaq-field">
+          <label for="eaq-name">Name<span class="req">*</span></label>
+          <input class="eaq-input" type="text" id="eaq-name" name="name" placeholder="Your name" required autocomplete="name">
+        </div>
+        <div class="eaq-field">
+          <label for="eaq-email">Email Address<span class="req">*</span></label>
+          <input class="eaq-input" type="email" id="eaq-email" name="email" placeholder="you@email.com" required autocomplete="email">
+        </div>
+        <div class="eaq-field">
+          <label for="eaq-phone">Phone Number <span style="color:var(--charcoal-light);font-weight:300">(optional)</span></label>
+          <input class="eaq-input" type="tel" id="eaq-phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel">
+        </div>
+        <label class="eaq-consent">
+          <input type="checkbox" id="eaq-consent" name="consent" value="Yes" required>
+          <span>By submitting this form, you agree to receive occasional emails about upcoming sound baths, healing circles, Reiki offerings, and wellness resources. You may unsubscribe at any time.</span>
+        </label>
+        <button type="submit" class="eaq-submit" id="eaq-lead-submit">Start My Assessment</button>
+        <div class="eaq-fineprint">Your information is kept private and never shared.</div>
+      </form>
+    </div>
+
+    <!-- Screen: Questions -->
+    <div class="eaq-screen" id="eaq-screen-quiz">
+      <div class="eaq-progress">
+        <div class="eaq-progress-meta">
+          <span id="eaq-q-counter">Question 1 of 7</span>
+          <span id="eaq-q-pct">14%</span>
+        </div>
+        <div class="eaq-progress-track"><div class="eaq-progress-fill" id="eaq-progress-fill"></div></div>
+      </div>
+      <h3 class="eaq-question" id="eaq-question">—</h3>
+      <div class="eaq-options" id="eaq-options"></div>
+      <div class="eaq-nav">
+        <button type="button" class="eaq-back" id="eaq-back" hidden>← Back</button>
+      </div>
+    </div>
+
+    <!-- Screen: Results -->
+    <div class="eaq-screen" id="eaq-screen-result">
+      <div class="eaq-result">
+        <span class="label">Your Result</span>
+        <div class="eaq-result-score">Your alignment score: <b id="eaq-score-num">0</b> / 28</div>
+        <h2 id="eaq-result-title">—</h2>
+        <p class="eaq-result-desc" id="eaq-result-desc">—</p>
+        <div class="eaq-prayer">
+          <h3>Prayer for Alignment</h3>
+          <p>
+            Divine Creator,<br>
+            Help me release what no longer serves my highest good.<br>
+            Restore peace where there has been worry.<br>
+            Restore clarity where there has been confusion.<br>
+            Restore trust where there has been fear.<br>
+            May my thoughts, actions, and choices align with truth, love, and wisdom.<br>
+            Guide me back to my center.<br>
+            Guide me back to my purpose.<br>
+            Guide me back to the peace already within me.<br>
+            May I walk forward with courage, grace, and faith.<br>
+            And so it is.
+            <span class="amen">Amen.</span>
+          </p>
+        </div>
+        <p class="eaq-cta-note" id="eaq-cta-note">If your score suggests that you're seeking realignment or ready for deep alignment, I invite you to explore a Prayer-Infused Energetic Alignment Session.</p>
+        <a class="eaq-cta" id="eaq-cta" href="#offerings">Learn More</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- ══ CONTACT ══ -->
 <section id="contact" class="section">
   <div class="contact-grid">
@@ -2735,6 +3024,19 @@ document.querySelectorAll('.review-more').forEach(btn => {
   });
 });
 
+// ── My Story "read more" toggle
+(function () {
+  const toggle = document.getElementById('aboutToggle');
+  if (!toggle) return;
+  const wrap = toggle.closest('.about-text');
+  const label = toggle.querySelector('.about-toggle-label');
+  toggle.addEventListener('click', () => {
+    const open = wrap.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+    if (label) label.textContent = open ? 'Show less' : 'Read more';
+  });
+})();
+
 // ── About intro video
 (function () {
   const frame = document.getElementById('aboutVideoFrame');
@@ -2785,6 +3087,192 @@ document.querySelectorAll('.reiki-video-frame[data-yt]').forEach(frame => {
     frame.style.cursor = 'default';
   });
 });
+
+// ── Energy Alignment Assessment (lead capture + quiz)
+(function () {
+  const overlay = document.getElementById('eaq-overlay');
+  if (!overlay) return;
+  const closeBtn = document.getElementById('eaq-close');
+  const screens = {
+    lead: document.getElementById('eaq-screen-lead'),
+    quiz: document.getElementById('eaq-screen-quiz'),
+    result: document.getElementById('eaq-screen-result'),
+  };
+  const leadForm = document.getElementById('eaq-lead-form');
+  const leadSubmit = document.getElementById('eaq-lead-submit');
+
+  const QUESTIONS = [
+    { q: 'How do you feel when you wake up most mornings?',
+      a: ['Refreshed and ready for the day', 'Mostly okay with occasional fatigue', 'Frequently tired or unmotivated', 'Exhausted before the day begins'] },
+    { q: 'How connected do you feel to your inner peace?',
+      a: ['Deeply connected', 'Fairly connected', 'Struggling to stay connected', 'Disconnected most of the time'] },
+    { q: 'How often do stress, worry, or emotional heaviness affect your day?',
+      a: ['Rarely', 'Sometimes', 'Often', 'Nearly every day'] },
+    { q: 'How easy is it for you to trust your intuition?',
+      a: ['Very easy', 'Usually easy', 'I often second-guess myself', 'I feel disconnected from my intuition'] },
+    { q: 'Which best describes your energy lately?',
+      a: ['Clear, focused, and flowing', 'Mostly balanced', 'Scattered or stuck', 'Heavy or depleted'] },
+    { q: 'How often do you intentionally nurture yourself?',
+      a: ['Consistently', 'A few times each week', 'Occasionally', 'Rarely'] },
+    { q: 'How aligned do your daily choices feel with the life you want to create?',
+      a: ['Very aligned', 'Somewhat aligned', 'Not very aligned', 'Completely out of alignment'] },
+  ];
+  const POINTS = [4, 3, 2, 1]; // A,B,C,D
+  const KEYS = ['A', 'B', 'C', 'D'];
+  const answers = new Array(QUESTIONS.length).fill(null);
+  let current = 0;
+  let lead = null;
+
+  function showScreen(name) {
+    Object.values(screens).forEach(s => s.classList.remove('active'));
+    screens[name].classList.add('active');
+    screens[name].parentElement.scrollTop = 0;
+  }
+  function openQuiz() {
+    if (overlay.classList.contains('open')) return;
+    overlay.classList.add('open');
+    document.body.classList.add('eaq-open');
+    sessionStorage.setItem('eaq_seen', '1');
+  }
+  function closeQuiz() {
+    overlay.classList.remove('open');
+    document.body.classList.remove('eaq-open');
+  }
+  closeBtn.addEventListener('click', closeQuiz);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeQuiz(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeQuiz();
+  });
+
+  // Lead capture submit → Formspree → reveal quiz
+  leadForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!leadForm.checkValidity()) { leadForm.reportValidity(); return; }
+    const fd = new FormData(leadForm);
+    lead = { name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone') || '' };
+    const payload = {
+      _subject: 'New Assessment Lead — ' + (lead.name || 'Sacred Sound & Spirit'),
+      Name: lead.name, Email: lead.email,
+      Phone: lead.phone || '(not provided)',
+      'Marketing consent': 'Yes',
+      Source: 'Energy Alignment Assessment',
+    };
+    leadSubmit.disabled = true;
+    leadSubmit.textContent = 'One moment…';
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error('Formspree ' + res.status);
+    } catch (err) {
+      console.warn('Lead capture fallback:', err);
+      // Non-blocking: still let the visitor take the assessment.
+    }
+    leadSubmit.disabled = false;
+    leadSubmit.textContent = 'Start My Assessment';
+    current = 0;
+    renderQuestion();
+    showScreen('quiz');
+  });
+
+  // Render a single question
+  const elCounter = document.getElementById('eaq-q-counter');
+  const elPct = document.getElementById('eaq-q-pct');
+  const elFill = document.getElementById('eaq-progress-fill');
+  const elQuestion = document.getElementById('eaq-question');
+  const elOptions = document.getElementById('eaq-options');
+  const elBack = document.getElementById('eaq-back');
+
+  function renderQuestion() {
+    const item = QUESTIONS[current];
+    const total = QUESTIONS.length;
+    elCounter.textContent = 'Question ' + (current + 1) + ' of ' + total;
+    const pct = Math.round(((current + 1) / total) * 100);
+    elPct.textContent = pct + '%';
+    elFill.style.width = pct + '%';
+    elQuestion.textContent = item.q;
+    elOptions.innerHTML = '';
+    item.a.forEach((text, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'eaq-option' + (answers[current] === i ? ' selected' : '');
+      btn.innerHTML = '<span class="eaq-option-key">' + KEYS[i] + '</span><span>' + text + '</span>';
+      btn.addEventListener('click', () => choose(i));
+      elOptions.appendChild(btn);
+    });
+    elBack.hidden = current === 0;
+  }
+
+  function choose(i) {
+    answers[current] = i;
+    const opts = elOptions.querySelectorAll('.eaq-option');
+    opts.forEach((o, idx) => o.classList.toggle('selected', idx === i));
+    setTimeout(() => {
+      if (current < QUESTIONS.length - 1) { current++; renderQuestion(); }
+      else { showResult(); }
+    }, 360);
+  }
+
+  elBack.addEventListener('click', () => {
+    if (current > 0) { current--; renderQuestion(); }
+  });
+
+  // Scoring + results
+  function showResult() {
+    const score = answers.reduce((sum, a) => sum + (a == null ? 0 : POINTS[a]), 0);
+    let title, desc;
+    if (score >= 24) {
+      title = 'Aligned & Flowing';
+      desc = 'Your energy appears balanced and connected.';
+    } else if (score >= 17) {
+      title = 'Seeking Realignment';
+      desc = 'Your energy may be carrying stress, emotional burdens, or competing demands.';
+    } else {
+      title = 'Ready for Deep Alignment';
+      desc = 'Your mind, body, and spirit may be carrying more than they were meant to carry alone.';
+    }
+    document.getElementById('eaq-score-num').textContent = score;
+    document.getElementById('eaq-result-title').textContent = title;
+    document.getElementById('eaq-result-desc').textContent = desc;
+    showScreen('result');
+
+    // Send the completed result to the practitioner (non-blocking)
+    const letters = answers.map(a => a == null ? '—' : KEYS[a]);
+    const resultPayload = {
+      _subject: 'Assessment Completed — ' + ((lead && lead.name) || 'Visitor') + ' (' + score + '/28: ' + title + ')',
+      Name: (lead && lead.name) || '', Email: (lead && lead.email) || '',
+      Phone: (lead && lead.phone) || '(not provided)',
+      Score: score + ' / 28', Result: title,
+      Answers: letters.join(', '),
+      Source: 'Energy Alignment Assessment — completed',
+    };
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(resultPayload),
+    }).catch(() => {});
+  }
+
+  // "Learn More" closes the quiz and scrolls to offerings
+  document.getElementById('eaq-cta').addEventListener('click', () => { closeQuiz(); });
+
+  // Trigger: once per session, ~35% scroll depth
+  function onScroll() {
+    if (sessionStorage.getItem('eaq_seen')) { window.removeEventListener('scroll', onScroll); return; }
+    if (document.body.classList.contains('intake-open')) return;
+    const scrolled = window.scrollY + window.innerHeight;
+    const depth = document.documentElement.scrollHeight;
+    if (scrolled / depth >= 0.38) {
+      openQuiz();
+      window.removeEventListener('scroll', onScroll);
+    }
+  }
+  if (!sessionStorage.getItem('eaq_seen')) {
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+})();
 </script>
 <script src="image-slot.js"></script>
 </body>
