@@ -440,6 +440,17 @@ button { cursor:pointer; font-family:inherit; }
   font-family:var(--font-display); font-size:14px; color:var(--charcoal);
   font-weight:400; letter-spacing:-0.01em; flex-shrink:0;
 }
+.offering-services li.svc-sub {
+  display:block; font-size:12.5px; color:var(--sage-deep);
+  padding-left:24px; line-height:1.5;
+}
+.offering-services li.svc-sub::before { content:'·'; left:14px; color:var(--sage); font-size:13px; }
+.offering-services li.svc-note {
+  display:block; font-size:12px; font-style:italic; color:var(--sage-deep);
+  padding-left:14px; line-height:1.55;
+}
+.offering-services li.svc-note::before { content:''; }
+.offering-services li.svc-gap { margin-top:8px; }
 .discount-note {
   max-width:760px; margin:40px auto 0; padding:20px 28px;
   background:var(--white); border:1px solid var(--sage-light);
@@ -1851,19 +1862,17 @@ body.eaq-open { overflow:hidden; }
       <div class="badge">Most Popular</div>
       <div class="offering-icon">✦</div>
       <div class="offering-title">Energy Healing</div>
-      <div class="offering-duration">1 hr 40 min · Tailored to your needs</div>
+      <div class="offering-duration">Tailored to your needs</div>
       <ul class="offering-services">
-        <li><span class="svc-name">Distance Reiki</span><span class="svc-price">$75</span></li>
-        <li><span class="svc-name">Distance Medical Reiki</span><span class="svc-price">$75</span></li>
         <li><span class="svc-name">Animal Reiki</span><span class="svc-price">$35</span></li>
-        <li><span class="svc-name">Indigenous Egg Energy Cleanse</span><span class="svc-price">$55</span></li>
-        <li>Reiki with Tuning Forks — Sonic Alignment Session</li>
-        <li>Reiki with Sound Bowls — Harmonic Energy Bath</li>
-        <li>Voice Tuning + Reiki — Vocal Resonance Healing</li>
+        <li><span class="svc-name">Distance Reiki</span><span class="svc-price">$75</span></li>
+        <li><span class="svc-name">Medical Reiki</span><span class="svc-price">$75</span></li>
+        <li><span class="svc-name">In-Person Reiki</span><span class="svc-price">$155</span></li>
+        <li class="svc-note">Depending on your needs, in-person Reiki can include a wide variety of tools: tuning forks, harmony energy bath, and vocal resonance healing.</li>
       </ul>
       <div class="offering-footer">
         <div>
-          <div class="offering-price">from $155</div>
+          <div class="offering-price">from $35</div>
           <div class="offering-fine">Includes 1 free integration call</div>
         </div>
         <a class="btn-offering" href="#contact">Book This Session</a>
@@ -1873,13 +1882,15 @@ body.eaq-open { overflow:hidden; }
     <!-- Card 2 -->
     <div class="offering-card">
       <div class="offering-icon" style="font-size:16px;letter-spacing:0.2em">— Hz —</div>
-      <div class="offering-title">Sound Therapy</div>
-      <div class="offering-duration">30 min · Tailored to your needs</div>
+      <div class="offering-title">Non-Reiki Services</div>
+      <div class="offering-duration">Tailored to your needs</div>
       <ul class="offering-services">
-        <li>Tuning Fork Sessions</li>
-        <li>Sound Bowl Sessions</li>
-        <li>Voice Frequency Work</li>
-        <li><span class="svc-name">Private Sound Bath<span style="display:block;font-size:11px;color:var(--sage);letter-spacing:0.02em;margin-top:2px">Up to 5 people · +$35 each additional</span></span><span class="svc-price">$250</span></li>
+        <li><span class="svc-name">Sound Therapy</span><span class="svc-price">$66</span></li>
+        <li class="svc-sub">Tuning forks</li>
+        <li class="svc-sub">Private sound bowl session for up to 2 people</li>
+        <li class="svc-sub">Voice tuning</li>
+        <li class="svc-gap"><span class="svc-name">Indigenous Egg Cleanse</span><span class="svc-price">$66</span></li>
+        <li class="svc-sub">Private events offered at additional cost</li>
       </ul>
       <div class="offering-footer">
         <div>
